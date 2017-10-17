@@ -302,7 +302,7 @@
 
 ## Guiding the compiler
 
-* A compiler that makes use this this information to guide us
+* A compiler that makes use of this information to guide us
 * Trap errors early
 * Make illegal states *unrepresentable*
 * Provide guidance where errors may occur
