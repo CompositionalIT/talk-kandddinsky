@@ -204,6 +204,7 @@
 * Only **4 possible ways** to interpret *ich liebe dich*
 * **4 conjungations** account for all 16 combinations
 * German also provides a third "dimension" for informal / formal
+* German also has a third "neuter" gender
 
 ---
 
@@ -326,7 +327,7 @@
 
 ## Guiding the compiler
 
-* A compiler that makes use of this information to guide us
+* A compiler makes use of this information to *help us*
 * Trap errors early
 * Make illegal states *unrepresentable*
 * Provide guidance where errors may occur
@@ -400,9 +401,7 @@ let forecast =
     { ForecastDate = DateTime(2017, 10, 17)
       Prediction = Sunny 10 }
 ```
-
 ---
-
 ## Sum Types continued...
 ```fsharp
 let describe forecast =
@@ -412,9 +411,7 @@ let describe forecast =
     | Cold (_, 0) -> "It's cold!"
     | Cold _ -> "It's cold and snowing!!"
 ```
-
 ---
-
 ## Nullability
 
 * Allows us to model the absence-of-a-value
@@ -436,7 +433,6 @@ let forecasts =
 
 ```
 ---
-
 ### F# *forces us* to handle missing values
 
 **
@@ -450,9 +446,7 @@ let tryDescribe weather =
     | Some forecast -> describe forecast
 
 ```
-
 ---
-
 ## Units of Measure
 
 **
@@ -470,9 +464,7 @@ type BetterWeather =
 ***
 
 ## Common Anti-patterns
-
 ---
-
 ### Implicitly null
 
 ```csharp
@@ -485,8 +477,7 @@ Employee e = null;
 e.EmployeeId + 10; // boom
 ```
 ---
-
-### Sometimes null, sometimes mandatory
+### The Unrepresentable Value
 
 ```csharp
 class ContactMethod
@@ -504,7 +495,6 @@ class ContactMethod
 }
 ```
 ---
-
 ### The Reusable Field
 
 ```csharp
@@ -521,7 +511,6 @@ class ContactMethodResuable
 }
 ```
 ---
-
 ```fsharp
 type ContactType =
     | Telephone of telephoneNumber:string
@@ -535,8 +524,7 @@ let act contactDetails =
     | Postal (firstLine, postCode) -> sprintf "Writing %s %s..." firstLine postCode
 ```
 ---
-
-### The mistyped field
+### The Mistyped Field
 
 ```csharp
 public void SendEmail(string body, string emailAddress) {
@@ -571,17 +559,13 @@ public class Employee {
     public int EmployeeTaxClass { get; set; }
 }
 ```
-
 ---
-
 ![](https://media.giphy.com/media/13EjnL7RwHmA2Q/giphy.gif)
 
 ***
 
 ## Case Study
-
 ---
-
 ## Pricing Sheet Engine
 
 * Large German airline
@@ -591,9 +575,7 @@ public class Employee {
 * Lots of different data feeds
     * Multiple formats
     * "Nearly-compatible" data
-
 ---
-
 ## Naturally evolving model
 
 ### Started simple
@@ -601,9 +583,7 @@ public class Employee {
 * Records
 * Primitive Types
 * Scripts for exploration
-
 ---
-
 ### Slowly added more types
 
 * Records
@@ -611,9 +591,7 @@ public class Employee {
 * Active Patterns
 * Single Case wrappers
 * Units of Measure
-
 ---
-
 ```fsharp
 type RateLine =
     { Market : string
@@ -624,9 +602,7 @@ type RateLine =
       MarketShare : int
       ShippedLastYear : float }
 ```
-
 ---
-
 ```fsharp
 type RateLine =
     { Market : Market
@@ -637,9 +613,7 @@ type RateLine =
       MarketShare : float<percentage>
       ShippedLastYear : float<kg> }
 ```
-
 ---
-
 ## End Result
 
 * **No bugs** in the wild
