@@ -461,10 +461,13 @@ type BetterWeather =
 | Wet of temperature:int<celcius> * windSpeed:int<km/hour>
 | Cold of temperature:int<celcius> * snowFall:int<cm/hour>
 ```
+
 ***
 
 ## Common Anti-patterns
+
 ---
+
 ### Implicitly null
 
 ```csharp
@@ -476,7 +479,9 @@ class Employee
 Employee e = null;
 e.EmployeeId + 10; // boom
 ```
+
 ---
+
 ### The Unrepresentable Value
 
 ```csharp
@@ -494,7 +499,9 @@ class ContactMethod
     public string Postcode { get; set; }
 }
 ```
+
 ---
+
 ### The Reusable Field
 
 ```csharp
@@ -510,7 +517,9 @@ class ContactMethodResuable
     public string Postcode { get; set; }
 }
 ```
+
 ---
+
 ```fsharp
 type ContactType =
     | Telephone of telephoneNumber:string
@@ -523,7 +532,9 @@ let act contactDetails =
     | Email address -> sprintf "Emailing %s..." address
     | Postal (firstLine, postCode) -> sprintf "Writing %s %s..." firstLine postCode
 ```
+
 ---
+
 ### The Mistyped Field
 
 ```csharp
@@ -536,7 +547,9 @@ public void SendWelcome(this Employee e) {
     // Whoops! Should have been e.EmailAddress
 }
 ```
+
 ---
+
 ```fsharp
 type EmailAddress = EmailAddress of string
 type TelephoneNumber = TelephoneNumber of string
@@ -549,7 +562,9 @@ let sendWelcome employee =
 // Not a string, but a string "wrapped" in an EmailAddress
 let email = EmailAddress "isaac@compositional-it.com"
 ```
+
 ---
+
 ### The Magic Number
 
 ```csharp
@@ -559,13 +574,17 @@ public class Employee {
     public int EmployeeTaxClass { get; set; }
 }
 ```
+
 ---
+
 ![](https://media.giphy.com/media/13EjnL7RwHmA2Q/giphy.gif)
 
 ***
 
 ## Case Study
+
 ---
+
 ## Pricing Sheet Engine
 
 * Large German airline
@@ -575,7 +594,9 @@ public class Employee {
 * Lots of different data feeds
     * Multiple formats
     * "Nearly-compatible" data
+
 ---
+
 ## Naturally evolving model
 
 ### Started simple
@@ -583,7 +604,9 @@ public class Employee {
 * Records
 * Primitive Types
 * Scripts for exploration
+
 ---
+
 ### Slowly added more types
 
 * Records
@@ -591,7 +614,9 @@ public class Employee {
 * Active Patterns
 * Single Case wrappers
 * Units of Measure
+
 ---
+
 ```fsharp
 type RateLine =
     { Market : string
@@ -602,7 +627,9 @@ type RateLine =
       MarketShare : int
       ShippedLastYear : float }
 ```
+
 ---
+
 ```fsharp
 type RateLine =
     { Market : Market
@@ -613,7 +640,9 @@ type RateLine =
       MarketShare : float<percentage>
       ShippedLastYear : float<kg> }
 ```
+
 ---
+
 ## End Result
 
 * **No bugs** in the wild
@@ -632,3 +661,7 @@ type RateLine =
 <img src="images/CIT-Circle.png" style="width: 200px;"/>
 
 https://compositional-it.com
+
+[@isaac_abraham](http://twitter.com/isaac_abraham)
+
+[isaac@compositional-it.com](mailto:isaac@compositional-it.com)
