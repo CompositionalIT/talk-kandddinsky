@@ -835,6 +835,16 @@ e.EmployeeId <span class="o">+</span> <span class="n">10</span>; <span class="c"
 </code></pre></td></tr></table>
 </section>
 <section >
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">Employee</span> <span class="o">=</span> { <span class="i">EmployeeId</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 112)" onmouseover="showTip(event, 'fs2', 112)" class="i">int</span> }
+<span class="k">let</span> <span class="i">employee</span> <span class="o">:</span> <span class="i">Employee</span> <span class="o">=</span> <span class="k">null</span> <span class="c">// will not compile!</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
 <h3>The Unrepresentable Value</h3>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
@@ -846,16 +856,10 @@ e.EmployeeId <span class="o">+</span> <span class="n">10</span>; <span class="c"
 <span class="l"> 8: </span>
 <span class="l"> 9: </span>
 <span class="l">10: </span>
-<span class="l">11: </span>
-<span class="l">12: </span>
-<span class="l">13: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="csharp"><span class="k">class</span> ContactMethod
 {
-    <span class="k">public</span> ContactType Preference { get; set; }
-
     <span class="c">// Only one of these should ever be set!</span>
-    <span class="c">// First check Preference value.</span>
     <span class="k">public</span> <span class="k">string</span> TelephoneNumber { get; set; }
     <span class="k">public</span> <span class="k">string</span> EmailAddress { get; set; }
     <span class="k">public</span> <span class="k">string</span> PostalAddress { get; set; }
@@ -905,15 +909,15 @@ e.EmployeeId <span class="o">+</span> <span class="n">10</span>; <span class="c"
 <span class="l">10: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">ContactType</span> <span class="o">=</span>
-    | <span class="i">Telephone</span> <span class="k">of</span> <span class="i">telephoneNumber</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 112)" onmouseover="showTip(event, 'fs51', 112)" class="i">string</span>
-    | <span class="i">Email</span> <span class="k">of</span> <span class="i">emailAddress</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 113)" onmouseover="showTip(event, 'fs51', 113)" class="i">string</span>
-    | <span class="i">Postal</span> <span class="k">of</span> <span class="i">firstLine</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 114)" onmouseover="showTip(event, 'fs51', 114)" class="i">string</span> <span class="o">*</span> <span class="i">postCode</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 115)" onmouseover="showTip(event, 'fs51', 115)" class="i">string</span>
+    | <span class="i">Telephone</span> <span class="k">of</span> <span class="i">telephoneNumber</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 113)" onmouseover="showTip(event, 'fs51', 113)" class="i">string</span>
+    | <span class="i">Email</span> <span class="k">of</span> <span class="i">emailAddress</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 114)" onmouseover="showTip(event, 'fs51', 114)" class="i">string</span>
+    | <span class="i">Postal</span> <span class="k">of</span> <span class="i">firstLine</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 115)" onmouseover="showTip(event, 'fs51', 115)" class="i">string</span> <span class="o">*</span> <span class="i">postCode</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 116)" onmouseover="showTip(event, 'fs51', 116)" class="i">string</span>
 
 <span class="k">let</span> <span class="i">act</span> <span class="i">contactDetails</span> <span class="o">=</span>
     <span class="k">match</span> <span class="i">contactDetails</span> <span class="k">with</span>
-    | <span class="i">Telephone</span> <span class="i">number</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs52', 116)" onmouseover="showTip(event, 'fs52', 116)" class="i">sprintf</span> <span class="s">&quot;Calling %s...&quot;</span> <span class="i">number</span>
-    | <span class="i">Email</span> <span class="i">address</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs52', 117)" onmouseover="showTip(event, 'fs52', 117)" class="i">sprintf</span> <span class="s">&quot;Emailing %s...&quot;</span> <span class="i">address</span>
-    | <span class="i">Postal</span> (<span class="i">firstLine</span>, <span class="i">postCode</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs52', 118)" onmouseover="showTip(event, 'fs52', 118)" class="i">sprintf</span> <span class="s">&quot;Writing %s %s...&quot;</span> <span class="i">firstLine</span> <span class="i">postCode</span>
+    | <span class="i">Telephone</span> <span class="i">number</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs52', 117)" onmouseover="showTip(event, 'fs52', 117)" class="i">sprintf</span> <span class="s">&quot;Calling %s...&quot;</span> <span class="i">number</span>
+    | <span class="i">Email</span> <span class="i">address</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs52', 118)" onmouseover="showTip(event, 'fs52', 118)" class="i">sprintf</span> <span class="s">&quot;Emailing %s...&quot;</span> <span class="i">address</span>
+    | <span class="i">Postal</span> (<span class="i">firstLine</span>, <span class="i">postCode</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs52', 119)" onmouseover="showTip(event, 'fs52', 119)" class="i">sprintf</span> <span class="s">&quot;Writing %s %s...&quot;</span> <span class="i">firstLine</span> <span class="i">postCode</span>
 </code></pre></td>
 </tr>
 </table>
@@ -951,10 +955,10 @@ e.EmployeeId <span class="o">+</span> <span class="n">10</span>; <span class="c"
 <span class="l"> 9: </span>
 <span class="l">10: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">EmailAddress</span> <span class="o">=</span> <span class="i">EmailAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs51', 119)" onmouseover="showTip(event, 'fs51', 119)" class="i">string</span>
-<span class="k">type</span> <span class="i">TelephoneNumber</span> <span class="o">=</span> <span class="i">TelephoneNumber</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs51', 120)" onmouseover="showTip(event, 'fs51', 120)" class="i">string</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">EmailAddress</span> <span class="o">=</span> <span class="i">EmailAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs51', 120)" onmouseover="showTip(event, 'fs51', 120)" class="i">string</span>
+<span class="k">type</span> <span class="i">TelephoneNumber</span> <span class="o">=</span> <span class="i">TelephoneNumber</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs51', 121)" onmouseover="showTip(event, 'fs51', 121)" class="i">string</span>
 
-<span class="k">let</span> <span class="i">sendEmail</span> (<span class="i">body</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 121)" onmouseover="showTip(event, 'fs51', 121)" class="i">string</span>) (<span class="i">EmailAddress</span> <span class="i">email</span>) <span class="o">=</span> () <span class="c">// send emails</span>
+<span class="k">let</span> <span class="i">sendEmail</span> (<span class="i">body</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs51', 122)" onmouseover="showTip(event, 'fs51', 122)" class="i">string</span>) (<span class="i">EmailAddress</span> <span class="i">email</span>) <span class="o">=</span> () <span class="c">// send emails</span>
 <span class="k">let</span> <span class="i">sendWelcome</span> <span class="i">employee</span> <span class="o">=</span>
     <span class="i">sendEmail</span> <span class="s">&quot;Welcome to the company!&quot;</span> <span class="i">employee</span><span class="o">.</span><span class="i">TelephoneNumber</span>
     <span class="c">// Won&#39;t compile - TelephoneNumber is not an EmailAddress</span>
@@ -1038,13 +1042,13 @@ Lots of different data feeds
 <span class="l">8: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">RateLine</span> <span class="o">=</span>
-    { <span class="i">Market</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 122)" onmouseover="showTip(event, 'fs51', 122)" class="i">string</span>
-      <span class="i">ProductName</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 123)" onmouseover="showTip(event, 'fs51', 123)" class="i">string</span>
-      <span class="i">Origin</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 124)" onmouseover="showTip(event, 'fs51', 124)" class="i">string</span>
-      <span class="i">Destination</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 125)" onmouseover="showTip(event, 'fs51', 125)" class="i">string</span>
-      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 126)" onmouseover="showTip(event, 'fs53', 126)" class="i">float</span>
-      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 127)" onmouseover="showTip(event, 'fs2', 127)" class="i">int</span>
-      <span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 128)" onmouseover="showTip(event, 'fs53', 128)" class="i">float</span> }
+    { <span class="i">Market</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 123)" onmouseover="showTip(event, 'fs51', 123)" class="i">string</span>
+      <span class="i">ProductName</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 124)" onmouseover="showTip(event, 'fs51', 124)" class="i">string</span>
+      <span class="i">Origin</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 125)" onmouseover="showTip(event, 'fs51', 125)" class="i">string</span>
+      <span class="i">Destination</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 126)" onmouseover="showTip(event, 'fs51', 126)" class="i">string</span>
+      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 127)" onmouseover="showTip(event, 'fs53', 127)" class="i">float</span>
+      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 128)" onmouseover="showTip(event, 'fs2', 128)" class="i">int</span>
+      <span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 129)" onmouseover="showTip(event, 'fs53', 129)" class="i">float</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -1064,9 +1068,9 @@ Lots of different data feeds
       <span class="i">ProductName</span> <span class="o">:</span> <span class="i">Product</span>
       <span class="i">Origin</span> <span class="o">:</span> <span class="i">Airport</span>
       <span class="i">Destination</span> <span class="o">:</span> <span class="i">Airport</span>
-      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 129)" onmouseover="showTip(event, 'fs53', 129)" class="i">float</span><span class="o">&lt;</span><span class="i">Euro</span><span class="o">/</span><span class="i">Kg</span><span class="o">&gt;</span>
-      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 130)" onmouseover="showTip(event, 'fs53', 130)" class="i">float</span><span class="o">&lt;</span><span class="i">percentage</span><span class="o">&gt;</span>
-      <span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 131)" onmouseover="showTip(event, 'fs53', 131)" class="i">float</span><span class="o">&lt;</span><span class="i">kg</span><span class="o">&gt;</span> }
+      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 130)" onmouseover="showTip(event, 'fs53', 130)" class="i">float</span><span class="o">&lt;</span><span class="i">Euro</span><span class="o">/</span><span class="i">Kg</span><span class="o">&gt;</span>
+      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 131)" onmouseover="showTip(event, 'fs53', 131)" class="i">float</span><span class="o">&lt;</span><span class="i">percentage</span><span class="o">&gt;</span>
+      <span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 132)" onmouseover="showTip(event, 'fs53', 132)" class="i">float</span><span class="o">&lt;</span><span class="i">kg</span><span class="o">&gt;</span> }
 </code></pre></td>
 </tr>
 </table>
