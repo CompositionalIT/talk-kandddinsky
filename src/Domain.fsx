@@ -35,6 +35,7 @@ let sampleLine =
       ShippedLastYear = germany.RevenueEarnedLastYear
       EffectiveTo = DateTime.MaxValue }
 
+/// Gets the market share. If the rate line is no longer effective, return nothing.
 let getMarketShare date line =
     match line.EffectiveTo with
     | effectiveDate when effectiveDate = DateTime.MaxValue ->

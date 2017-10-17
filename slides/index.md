@@ -481,16 +481,20 @@ e.EmployeeId + 10; // boom
 ```
 
 ---
+```fsharp
+type Employee = { EmployeeId : int }
+let employee : Employee = null // will not compile!
+```
+
+
+---
 
 ### The Unrepresentable Value
 
 ```csharp
 class ContactMethod
 {
-    public ContactType Preference { get; set; }
-
     // Only one of these should ever be set!
-    // First check Preference value.
     public string TelephoneNumber { get; set; }
     public string EmailAddress { get; set; }
     public string PostalAddress { get; set; }
