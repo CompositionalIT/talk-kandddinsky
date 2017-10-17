@@ -575,7 +575,9 @@ let email = EmailAddress "isaac@compositional-it.com"
 * Complex business rules
     * Routing logic
     * Pricing models
-
+* Lots of different data feeds
+    * Multiple formats
+    * "Nearly-compatible" data
 ---
 
 ## Naturally evolving model
@@ -595,6 +597,41 @@ let email = EmailAddress "isaac@compositional-it.com"
 * Active Patterns
 * Single Case wrappers
 * Units of Measure
+
+---
+
+```fsharp
+type RateLine =
+    { Market : string
+      ProductName : string
+      Origin : string
+      Destination : string
+      Rate : float
+      MarketShare : int
+      ShippedLastYear : float }
+```
+
+---
+
+```fsharp
+type RateLine =
+    { Market : Market
+      ProductName : Product
+      Origin : Airport
+      Destination : Airport
+      Rate : float<Euro/Kg>
+      MarketShare : float<percentage>
+      ShippedLastYear : float<kg> }
+```
+
+---
+
+## End Result
+
+* **No bugs** in the wild
+* Calculations matched exactly to previous manual work
+* Focus on solving business problems
+* Able to walk through code with domain experts
 
 ***
 
