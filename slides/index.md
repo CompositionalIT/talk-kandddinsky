@@ -41,7 +41,7 @@
 
 ---
 
-## **Communcation**
+## **Communication**
 
 * To yourself
 * To other developers
