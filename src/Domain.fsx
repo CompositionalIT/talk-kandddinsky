@@ -1,3 +1,6 @@
+#load "Types.fsx"
+open System
+
 type RateLine =
     { /// The name of the Market e.g. Germany.
       Market : string
@@ -12,22 +15,22 @@ type RateLine =
       /// The market share compared to other shippers as a percentage.
       MarketShare : int
       /// The total weight that was shipped last year on this route.
-      ShippedLastYear : float }
+      ShippedLastYear : float
+      /// The date when this rate is effective to. Use DateTime.Max if no end date needed.
+      EffectiveTo : DateTime }
+
+let germany =
+    { Id = "Germany"
+      BaseAirport = "FRA"
+      TransportedLastYear = 5000.
+      RevenueEarnedLastYear = 10000. }
 
 let sampleLine =
-    { Market = ""
+    { Market = germany.BaseAirport
       Product = "Perisables"
       Origin = "FRA"
       Destination = "LHR"
-      Rate = 0.
+      Rate = (germany.TransportedLastYear / germany.RevenueEarnedLastYear) * 1.03
       MarketShare = 0
-      ShippedLastYear = 0. }
-
-// 1. Let's set the market based on some reference data
-type MarketData = { Id : string; BaseAirport : string }
-let germany = { Id = "Germany"; BaseAirport = "FRA" }
-
-let setMarket marketData dataRow =
-    { dataRow with Market = marketData.BaseAirport }
-
-sampleLine |> setMarket germany
+      ShippedLastYear = germany.RevenueEarnedLastYear
+      EffectiveTo = DateTime.MaxValue }

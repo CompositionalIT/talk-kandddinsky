@@ -548,7 +548,6 @@ public void SendWelcome(this Employee e) {
     // Whoops! Should have been e.EmailAddress
 }
 ```
-
 ---
 ```fsharp
 type EmailAddress = EmailAddress of string
@@ -562,6 +561,20 @@ let sendWelcome employee =
 // Not a string, but a string "wrapped" in an EmailAddress
 let email = EmailAddress "isaac@compositional-it.com"
 ```
+---
+### The Magic Number
+
+```csharp
+public class Employee {
+    // The tax class of the employee.
+    // If unknown is -1. New employee is -2.
+    public int EmployeeTaxClass { get; set; }
+}
+```
+
+---
+
+![](https://media.giphy.com/media/13EjnL7RwHmA2Q/giphy.gif)
 
 ***
 
@@ -569,7 +582,7 @@ let email = EmailAddress "isaac@compositional-it.com"
 
 ---
 
-### Routing and Pricing Engine
+## Pricing Sheet Engine
 
 * Large German airline
 * Complex business rules
@@ -578,6 +591,7 @@ let email = EmailAddress "isaac@compositional-it.com"
 * Lots of different data feeds
     * Multiple formats
     * "Nearly-compatible" data
+
 ---
 
 ## Naturally evolving model
@@ -635,7 +649,7 @@ type RateLine =
 
 ***
 
-Demo
+## Demo
 
 ***
 
