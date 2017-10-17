@@ -1,4 +1,4 @@
-- title : Incremental Modelling with F#
+- title : Trusting your Domain with F#
 - description : Talk for Kandddinsky
 - author : Isaac Abraham
 - theme : night
@@ -6,7 +6,7 @@
 
 ***
 
-## Incremental Modelling
+## Trusting your Domain
 ## with F#
 
 ***
@@ -37,7 +37,16 @@
 
 ***
 
-## Why are Type Systems important?
+## Why are static types important?
+
+---
+
+## **Communcation**
+
+* To yourself
+* To other developers
+* To non-technical people?
+* To the compiler
 
 ***
 
@@ -93,7 +102,7 @@
 
 ---
 
-![](images/love-1.jpg)
+<img src="images/love-1.jpg" style="width: 700px;"/>
 
 ---
 
@@ -101,11 +110,11 @@
 
 ---
 
-![](images/male-female-1.jpg)
+<img src="images/male-female-1.jpg" style="width: 500px;"/>
 
 ---
 
-![](images/male-female-2.jpg)
+<img src="images/male-female-2.jpg" style="width: 700px;"/>
 
 ---
 
@@ -265,21 +274,22 @@
 
 ## Is this a good thing?
 
----
+***
 
 ## Considering Programming languages
 
 ---
 
-## Conciseness
-* *Not* "making things hard to read" :(
-* *Is* "removing things that don't add value" :)
-* Type Inference
-* Lightweight syntax
+## Communication
+* Be succinct
+    * Lightweight syntax
+    * Type Inference
+* Express the intent in detail
+    * Types!
 
 ---
 
-## Explicit Types
+## Static Types
 
 * Specify *rich* information about a domain
 * Generics
@@ -290,7 +300,7 @@
 
 ---
 
-## A smart compiler
+## Guiding the compiler
 
 * A compiler that makes use this this information to guide us
 * Trap errors early
@@ -303,16 +313,16 @@
 
 ```fsharp
 let x : int = 5
-let y = 5 // infer x to be int
+let y = 5 // infer y to be int
 ```
 ---
 
 ### Type Inference #2
 
 ```fsharp
-let addFive x = 5 + x
+let addFive number = 5 + number
 
-// infer x to be an int.
+// infer number to be an int.
 // infer addFive to return an int.
 ```
 ---
@@ -320,25 +330,222 @@ let addFive x = 5 + x
 ### Type Inference #3
 
 ```fsharp
-type Temperature = Hot | Warm | Cold | Freezing
+type Gender = Male | Female
+type Language = English | German | Hebrew
+type Plurality = Singular | Plural
 
-let checkWeather weather =
-    match weather with
-    | "London", Hot -> "It's hot in London!"
-    | "Berlin", Cold -> "What a surprise. It's cold in Germany!"
-    | _, Warm -> "It's warm"
-    | _ -> "Something else..."
+let speak phrase =
+    match phrase with
+    | English, Male, Singular -> "I love you"
+    | German, Male, Plural -> "ich liebe euch"
+    | Hebrew, Female, Singular -> "ani ohev otach"
 
-// weather is inferred as a Tuple of (string * Temperature)
+// phrase is a Tuple of (Language * Gender * Plurality)
+```
+
+---
+
+## Compiler support
+
+```fsharp
+let speak phrase =
+    match phrase with
+    | Male, Singular -> "ich liebe dich"
+    | Male, Plural -> "ich liebe euch"
+    | Female, Singular -> "ich liebe dich"
+
+// compiler warns that we have not handled the (Female + Plural) case!
 ```
 ---
 
+## Sum Types
+
+```fsharp
+open System
+
+type Weather =
+| Sunny of temperature:int
+| Wet of temperature:int * windSpeed:int
+| Cold of temperature:int * snowFall:int
+
+type Forecast =
+    { ForecastDate : DateTime
+      Prediction : Weather }
+
+let forecast =
+    { ForecastDate = DateTime(2017, 10, 17)
+      Prediction = Sunny 10 }
+```
+
+---
+
+## Sum Types continued...
+```fsharp
+let describe forecast =
+    match forecast.Prediction with
+    | Sunny _ -> "Sunny!"
+    | Wet (_, windSpeed) when windSpeed > 10 -> "Wet and windy!"
+    | Cold (_, 0) -> "It's cold!"
+    | Cold _ -> "It's cold and snowing!!"
+```
+
+---
+
+## Nullability
+
+* Allows us to model the absence-of-a-value
+* Rich support within F#
+* In F#, values are *non-nullable by default*
+
+**
+
+```fsharp
+open System
+
+type OptionalForecast =
+    { ForecastDate : DateTime
+      Prediction : Weather option } // note the "option" marker
+
+let forecasts =
+    [ { ForecastDate = DateTime(2017, 10, 17); Prediction = Some(Sunny 5) }
+      { ForecastDate = DateTime(2017, 10, 18); Prediction = None } ]
+
+```
+---
+
+### F# *forces us* to handle missing values
+
+**
+
+```fsharp
+open System
+
+let tryDescribe weather =
+    match weather with
+    | None -> "Sorry, no forecast available!"
+    | Some forecast -> describe forecast
+
+```
+
+---
+
+## Units of Measure
+
+**
+```fsharp
+[<Measure>] type celcius
+[<Measure>] type cm
+[<Measure>] type km
+[<Measure>] type hour
+
+type BetterWeather =
+| Sunny of temperature:int<celcius>
+| Wet of temperature:int<celcius> * windSpeed:int<km/hour>
+| Cold of temperature:int<celcius> * snowFall:int<cm/hour>
+```
+***
+
 ## Common Anti-patterns
 
+---
+
+### Implicitly null
+
+```csharp
+class Employee
+{
+    public int EmployeeId { get; set; }
+}
+
+Employee e = null;
+e.EmployeeId + 10; // boom
+```
+---
+
+### Sometimes null, sometimes mandatory
+
+```csharp
+class ContactMethod
+{
+    public ContactType Preference { get; set; }
+
+    // Only one of these should ever be set!
+    // First check Preference value.
+    public string TelephoneNumber { get; set; }
+    public string EmailAddress { get; set; }
+    public string PostalAddress { get; set; }
+
+    // Only populated if Preference == Postal
+    public string Postcode { get; set; }
+}
+```
+---
+
+### The Reusable Field
+
+```csharp
+class ContactMethodResuable
+{
+    public ContactType Preference { get; set; }
+
+    // Based on Preference, this represents either
+    // phone, email or the first line address
+    public string Details { get; set; }
+    
+    // Only populated if Preference == Postal
+    public string Postcode { get; set; }
+}
+```
+---
+
+```fsharp
+type ContactType =
+    | Telephone of telephoneNumber:string
+    | Email of emailAddress:string
+    | Postal of firstLine:string * postCode:string
+
+let act contactDetails =
+    match contactDetails with
+    | Telephone number -> sprintf "Calling %s..." number
+    | Email address -> sprintf "Emailing %s..." address
+    | Postal (firstLine, postCode) -> sprintf "Writing %s %s..." firstLine postCode
+```
+---
+
+### The mistyped field
+
+```csharp
+public void SendEmail(string body, string emailAddress) {
+    // do funky email sending here...
+}
+
+public void SendWelcome(this Employee e) {
+    SendEmail("Welcome to the company!", e.TelephoneNumber);
+    // Whoops! Should have been e.EmailAddress
+}
+```
+
+---
+```fsharp
+type EmailAddress = EmailAddress of string
+type TelephoneNumber = TelephoneNumber of string
+
+let sendEmail (body:string) (EmailAddress email) = () // send emails
+let sendWelcome employee =
+    sendEmail "Welcome to the company!" employee.TelephoneNumber
+    // Won't compile - TelephoneNumber is not an EmailAddress
+
+// Not a string, but a string "wrapped" in an EmailAddress
+let email = EmailAddress "isaac@compositional-it.com"
+```
 
 ***
 
 ## Case Study
+
+---
+
+* Routing and Pricing Engine for a large German airline
 
 ***
 
