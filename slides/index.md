@@ -41,12 +41,24 @@
 
 ---
 
-## **Communcation**
+## **Communication**
 
 * To yourself
 * To other developers
 * To non-technical people?
 * To the compiler
+
+---
+
+## Is this stuff *really* useful?
+
+![](https://media.giphy.com/media/pjpWzzg1rLpVS/giphy.gif)
+
+---
+
+## It's too technical!
+
+![](https://media.giphy.com/media/3o7btPCcdNniyf0ArS/source.gif)
 
 ***
 
@@ -265,7 +277,7 @@
 ## Summary
 
 * Hebrew allows us to specify **exactly the case** we required
-* Only **1 way** to interpret *ani ohev otach*
+* Only **1 way** to say *I love you* for any given subject & object
 * **10 different words for all conjungations**
 * **16 conjungations** account for all 16 combinations
 * In Hebrew you can omit the *subject* word entirely
@@ -284,10 +296,22 @@
 * Be succinct
     * Lightweight syntax
     * Type Inference
-* Express the intent in detail
-    * Types!
+* Express our intent
+    * Coding Documents?
+    * Unit tests?
+    * Comments?
 
 ---
+
+### TYPES!
+
+---
+
+* Types can't easily be ignored
+* Types don't need to be maintained separately
+* Types don't need unit tests
+
+--- 
 
 ## Static Types
 
@@ -545,11 +569,36 @@ let email = EmailAddress "isaac@compositional-it.com"
 
 ---
 
-* Routing and Pricing Engine for a large German airline
+### Routing and Pricing Engine
+
+* Large German airline
+* Complex business rules
+    * Routing logic
+    * Pricing models
+
+---
+
+## Naturally evolving model
+
+### Started simple
+
+* Records
+* Primitive Types
+* Scripts for exploration
+
+---
+
+### Slowly added more types
+
+* Records
+* Discriminated Unions
+* Active Patterns
+* Single Case wrappers
+* Units of Measure
 
 ***
 
-## Demo
+Demo
 
 ***
 
