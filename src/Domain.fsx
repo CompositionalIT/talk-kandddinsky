@@ -31,6 +31,17 @@ let sampleLine =
       Origin = "FRA"
       Destination = "LHR"
       Rate = (germany.TransportedLastYear / germany.RevenueEarnedLastYear) * 1.03
-      MarketShare = 0
+      MarketShare = 12
       ShippedLastYear = germany.RevenueEarnedLastYear
       EffectiveTo = DateTime.MaxValue }
+
+let getMarketShare date line =
+    match line.EffectiveTo with
+    | effectiveDate when effectiveDate = DateTime.MaxValue ->
+        printfn "Warning: no max date found"
+        line.MarketShare
+    | effectiveDate when effectiveDate < date -> -1
+    | _ -> line.MarketShare
+
+sampleLine
+|> getMarketShare (DateTime.Now)
