@@ -813,7 +813,9 @@ Express our intent
 </section>
 <section >
 <section >
-<h2>## Common Anti-patterns</h2>
+<h2>Common Anti-patterns</h2>
+</section>
+<section >
 <h3>Implicitly null</h3>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
@@ -983,7 +985,10 @@ e.EmployeeId <span class="o">+</span> <span class="n">10</span>; <span class="c"
 </section>
 </section>
 <section >
-<h2>## Case Study</h2>
+<section >
+<h2>Case Study</h2>
+</section>
+<section >
 <h2>Pricing Sheet Engine</h2>
 <ul>
 <li>Large German airline</li>
@@ -998,28 +1003,31 @@ Complex business rules
 Lots of different data feeds
 <ul>
 <li>Multiple formats</li>
-<li>
-"Nearly-compatible" data
----
-## Naturally evolving model
-</li>
+<li>"Nearly-compatible" data</li>
 </ul>
 </li>
 </ul>
+</section>
+<section >
+<h2>Naturally evolving model</h2>
 <h3>Started simple</h3>
 <ul>
 <li>Records</li>
 <li>Primitive Types</li>
-<li>
-<h2>Scripts for exploration</h2>
+<li>Scripts for exploration</li>
+</ul>
+</section>
+<section >
 <h3>Slowly added more types</h3>
-</li>
+<ul>
 <li>Records</li>
 <li>Discriminated Unions</li>
 <li>Active Patterns</li>
 <li>Single Case wrappers</li>
-<li>
-<h2>Units of Measure</h2>
+<li>Units of Measure</li>
+</ul>
+</section>
+<section >
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
@@ -1030,17 +1038,18 @@ Lots of different data feeds
 <span class="l">8: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">RateLine</span> <span class="o">=</span>
-{ <span class="i">Market</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 122)" onmouseover="showTip(event, 'fs51', 122)" class="i">string</span>
-<span class="i">ProductName</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 123)" onmouseover="showTip(event, 'fs51', 123)" class="i">string</span>
-<span class="i">Origin</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 124)" onmouseover="showTip(event, 'fs51', 124)" class="i">string</span>
-<span class="i">Destination</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 125)" onmouseover="showTip(event, 'fs51', 125)" class="i">string</span>
-<span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 126)" onmouseover="showTip(event, 'fs53', 126)" class="i">float</span>
-<span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 127)" onmouseover="showTip(event, 'fs2', 127)" class="i">int</span>
-<span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 128)" onmouseover="showTip(event, 'fs53', 128)" class="i">float</span> }
+    { <span class="i">Market</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 122)" onmouseover="showTip(event, 'fs51', 122)" class="i">string</span>
+      <span class="i">ProductName</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 123)" onmouseover="showTip(event, 'fs51', 123)" class="i">string</span>
+      <span class="i">Origin</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 124)" onmouseover="showTip(event, 'fs51', 124)" class="i">string</span>
+      <span class="i">Destination</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 125)" onmouseover="showTip(event, 'fs51', 125)" class="i">string</span>
+      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 126)" onmouseover="showTip(event, 'fs53', 126)" class="i">float</span>
+      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 127)" onmouseover="showTip(event, 'fs2', 127)" class="i">int</span>
+      <span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 128)" onmouseover="showTip(event, 'fs53', 128)" class="i">float</span> }
 </code></pre></td>
 </tr>
 </table>
-<hr />
+</section>
+<section >
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
@@ -1051,24 +1060,26 @@ Lots of different data feeds
 <span class="l">8: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span class="i">RateLine</span> <span class="o">=</span>
-{ <span class="i">Market</span> <span class="o">:</span> <span class="i">Market</span>
-<span class="i">ProductName</span> <span class="o">:</span> <span class="i">Product</span>
-<span class="i">Origin</span> <span class="o">:</span> <span class="i">Airport</span>
-<span class="i">Destination</span> <span class="o">:</span> <span class="i">Airport</span>
-<span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 129)" onmouseover="showTip(event, 'fs53', 129)" class="i">float</span><span class="o">&lt;</span><span class="i">Euro</span><span class="o">/</span><span class="i">Kg</span><span class="o">&gt;</span>
-<span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 130)" onmouseover="showTip(event, 'fs53', 130)" class="i">float</span><span class="o">&lt;</span><span class="i">percentage</span><span class="o">&gt;</span>
-<span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 131)" onmouseover="showTip(event, 'fs53', 131)" class="i">float</span><span class="o">&lt;</span><span class="i">kg</span><span class="o">&gt;</span> }
+    { <span class="i">Market</span> <span class="o">:</span> <span class="i">Market</span>
+      <span class="i">ProductName</span> <span class="o">:</span> <span class="i">Product</span>
+      <span class="i">Origin</span> <span class="o">:</span> <span class="i">Airport</span>
+      <span class="i">Destination</span> <span class="o">:</span> <span class="i">Airport</span>
+      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 129)" onmouseover="showTip(event, 'fs53', 129)" class="i">float</span><span class="o">&lt;</span><span class="i">Euro</span><span class="o">/</span><span class="i">Kg</span><span class="o">&gt;</span>
+      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 130)" onmouseover="showTip(event, 'fs53', 130)" class="i">float</span><span class="o">&lt;</span><span class="i">percentage</span><span class="o">&gt;</span>
+      <span class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs53', 131)" onmouseover="showTip(event, 'fs53', 131)" class="i">float</span><span class="o">&lt;</span><span class="i">kg</span><span class="o">&gt;</span> }
 </code></pre></td>
 </tr>
 </table>
-<hr />
+</section>
+<section >
 <h2>End Result</h2>
-</li>
-<li><p><strong>No bugs</strong> in the wild</p></li>
+<ul>
+<li><strong>No bugs</strong> in the wild</li>
 <li>Calculations matched exactly to previous manual work</li>
 <li>Focus on solving business problems</li>
 <li>Able to walk through code with domain experts</li>
 </ul>
+</section>
 </section>
 <section >
 <h2>Demo</h2>
