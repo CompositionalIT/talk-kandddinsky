@@ -30,8 +30,8 @@
 
 ## What am I going to talk about?
 
-* Using types when modelling domains
-* ** *Spoken* languages** and **type systems**
+* The importance of types for domain modelling?
+* Parallels: *Spoken* and *Programming* languages
 * Real-world case study
 * Demo
 
@@ -45,12 +45,54 @@
 
 * To yourself
 * To other developers
-* To non-technical people?
-* To the compiler
+* To non-developers!
+* To the compiler!
 
 ---
 
-## Is this stuff *really* useful?
+## Be succinct
+
+---
+
+### Lightweight syntax
+### Type Inference
+
+---
+
+## Expressing intent
+
+---
+
+### Coding Standard?
+### Unit Tests?
+### Comments?
+
+---
+
+## TYPES!
+
+---
+
+## Why Types?
+
+* Types can't easily be ignored
+* Types don't need to be maintained separately
+* Types don't need unit tests
+
+--- 
+
+## Static Types
+### Specify *rich* information about a domain
+* Basic Types
+* Generics
+* Sum Types
+* Nullability
+* Units of Measure
+* Dependent Types etc.
+
+---
+
+## Is F# a real possibility?
 
 ![](https://media.giphy.com/media/pjpWzzg1rLpVS/giphy.gif)
 
@@ -59,6 +101,10 @@
 ## It's too technical!
 
 ![](https://media.giphy.com/media/3o7btPCcdNniyf0ArS/source.gif)
+
+---
+
+## Don't believe the myths
 
 ***
 
@@ -88,15 +134,15 @@
 
 ## Just like programming languages
 
-| Simpler |  | Complex |
-|:-:|:-:|:-:|
+| Less rules |  | More rules |
+|:-|:-:|-:|
 | Go   | C#     | Idris |
 | English | German | Hungarian |
 
 ---
 
-| More "open" | | More "specific" |
-|:-:|:-:|:-:|
+| Less power | | More powerful |
+|:-|:-:|-:|
 | Go   | C#     | Idris |
 | English | German | Hungarian |
 
@@ -105,7 +151,7 @@
 ## Learning a new language can be hard
 
 * English has little / no notion of gender
-* Virtually no notion of several cases
+* Little notion of common cases e.g. accusative, dativ etc.
 * Other languages take these cases for granted
 
 ---
@@ -208,6 +254,23 @@
 
 ---
 
+## How would you feel?
+
+* No more die / das / den / dem
+    * Only der!
+* No more dich / dir / euch / Sie
+    * Only du!
+
+---
+
+## German objects have different gender depending on the time!
+
+---
+
+![](images/korn.jpg)
+
+---
+
 ## Take #3:
 ## Hebrew
 
@@ -238,40 +301,44 @@
 |-|:-:|:-:|
 | Singular | X | |
 | Plural | | |
+
 ---
 
-## Gender
+## Object Gender
 
-| Subject | Object | |
-|-|-|-|
-| Male | Female | Ani Ohev Otach |
-| Male | ***Male*** | Ani Ohev Ot***cha*** |
-| ***Female*** | Male | Ani Ohev***et*** Otach |
+| | English | German | Hebrew |
+|-|-|-|-|
+| M > F | I love you | Ich liebe dich | Ani Ohev Otach 
+| M > ***M*** | | | Ani Ohev ***Otcha***
+
+---
+
+## Subject Gender
+
+| | English | German | Hebrew |
+|-|-|-|-|
+| M > F | I love you | Ich liebe dich | Ani Ohev Otach 
+| ***F*** > F | | | Ani ***Ohevet*** Otach
 
 ---
 
 ## Object Plurality
 
-*I love you / ich liebe euch*
-
-| Subject | Object | |
-|-|-|-|
-| Male | Female | Ani Ohev Otach |
-| Male | ***General Plural*** | Ani Ohev ***Otchem*** |
-| Male | ***Female-only Plural*** | Ani Ohev ***Etchen*** |
+| | English | German | Hebrew |
+|-|-|-|-|
+| M > F | I love you | Ich liebe dich | Ani Ohev Otach 
+| M > MP | | Ich liebe ***euch*** | Ani Ohev ***Otchem***
+| M > FP | | | Ani Ohev ***Etchen***
 
 ---
 
 ## Subject Plurality
 
-*We love you / wir lieben dich*
-
-
-| Subject | Object | |
-|-|-|-|
-| Male | Female | Ani Ohev Otach |
-| ***Male, Plural*** | Female | ***Anachnu*** Oh***a***v***im*** Otach | 
-| ***Female, Plural*** | Female | ***Anachnu*** Ohev***ot*** Otach |
+| | English | German | Hebrew |
+|-|-|-|-|
+| M > F | I love you | Ich liebe dich | Ani Ohev Otach 
+| MP > F | ***We*** love you | ***Wir lieben*** dich | ***Anachnu*** ***Ohavim*** Otach
+| FP > F | | | ***Anachnu*** ***Ohevot*** Otach
 
 ---
 
@@ -279,7 +346,7 @@
 
 * Hebrew allows us to specify **exactly the case** we required
 * Only **1 way** to say *I love you* for any given subject & object
-* **10 different words for all conjungations**
+* **Need to learn 10 different words**
 * **16 conjungations** account for all 16 combinations
 * In Hebrew you can omit the *subject* word entirely
 
@@ -293,41 +360,16 @@
 
 ---
 
-## Communication
-* Be succinct
-    * Lightweight syntax
-    * Type Inference
-* Express our intent
-    * Coding Documents?
-    * Unit tests?
-    * Comments?
-
----
-
-### TYPES!
-
----
-
-* Types can't easily be ignored
-* Types don't need to be maintained separately
-* Types don't need unit tests
-
---- 
-
-## Static Types
-
-* Specify *rich* information about a domain
-* Generics
-* Sum Types
-* Nullability
-* Units of Measure
-* Dependent Types etc.
+### How can rich types help us?
 
 ---
 
 ## Guiding the compiler
 
-* A compiler makes use of this information to *help us*
+A compiler makes use of type information to *help us*
+
+**
+
 * Trap errors early
 * Make illegal states *unrepresentable*
 * Provide guidance where errors may occur
@@ -464,63 +506,32 @@ type BetterWeather =
 
 ***
 
-## Common Anti-patterns
+## Common anti-patterns
 
 ---
 
 ### Implicitly null
 
-```csharp
-class Employee
-{
-    public int EmployeeId { get; set; }
-}
-
-Employee e = null;
-e.EmployeeId + 10; // boom
-```
+![](images/anti-patterns-1.png)
 
 ---
+
 ```fsharp
 type Employee = { EmployeeId : int }
 let employee : Employee = null // will not compile!
 ```
 
-
 ---
 
 ### The Unrepresentable Value
 
-```csharp
-class ContactMethod
-{
-    // Only one of these should ever be set!
-    public string TelephoneNumber { get; set; }
-    public string EmailAddress { get; set; }
-    public string PostalAddress { get; set; }
-
-    // Only populated if Preference == Postal
-    public string Postcode { get; set; }
-}
-```
+![](images/anti-patterns-2.png)
 
 ---
 
 ### The Reusable Field
 
-```csharp
-class ContactMethodResuable
-{
-    public ContactType Preference { get; set; }
-
-    // Based on Preference, this represents either
-    // phone, email or the first line address
-    public string Details { get; set; }
-    
-    // Only populated if Preference == Postal
-    public string Postcode { get; set; }
-}
-```
+![](images/anti-patterns-3.png)
 
 ---
 
@@ -541,16 +552,7 @@ let act contactDetails =
 
 ### The Mistyped Field
 
-```csharp
-public void SendEmail(string body, string emailAddress) {
-    // do funky email sending here...
-}
-
-public void SendWelcome(this Employee e) {
-    SendEmail("Welcome to the company!", e.TelephoneNumber);
-    // Whoops! Should have been e.EmailAddress
-}
-```
+![](images/anti-patterns-4.png)
 
 ---
 
@@ -571,17 +573,23 @@ let email = EmailAddress "isaac@compositional-it.com"
 
 ### The Magic Number
 
-```csharp
-public class Employee {
-    // The tax class of the employee.
-    // If unknown is -1. New employee is -2.
-    public int EmployeeTaxClass { get; set; }
-}
-```
+![](images/anti-patterns-5.png)
 
 ---
 
 ![](https://media.giphy.com/media/13EjnL7RwHmA2Q/giphy.gif)
+
+---
+
+## Types are there to help!
+
+---
+
+## More types <> not read-world
+
+---
+
+## More types <> too hard
 
 ***
 
@@ -591,10 +599,12 @@ public class Employee {
 
 ## Pricing Sheet Engine
 
-* Large German airline
-* Complex business rules
+* Large German cargo airline
+* Runs across ~100 markets
+* Complex domain
     * Routing logic
     * Pricing models
+    * Ubiquitous language?
 * Lots of different data feeds
     * Multiple formats
     * "Nearly-compatible" data
