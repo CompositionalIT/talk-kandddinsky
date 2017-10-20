@@ -51,20 +51,20 @@
 <div class="tip" id="fs3">val y : int<br /><br />Full name: index.y</div>
 <div class="tip" id="fs4">val addFive : number:int -&gt; int<br /><br />Full name: index.addFive</div>
 <div class="tip" id="fs5">val number : int</div>
-<div class="tip" id="fs6">type Gender =<br />&#160;&#160;| Male<br />&#160;&#160;| Female<br /><br />Full name: index.Gender</div>
-<div class="tip" id="fs7">union case Gender.Male: Gender</div>
-<div class="tip" id="fs8">union case Gender.Female: Gender</div>
-<div class="tip" id="fs9">type Language =<br />&#160;&#160;| English<br />&#160;&#160;| German<br />&#160;&#160;| Hebrew<br /><br />Full name: index.Language</div>
-<div class="tip" id="fs10">union case Language.English: Language</div>
-<div class="tip" id="fs11">union case Language.German: Language</div>
-<div class="tip" id="fs12">union case Language.Hebrew: Language</div>
-<div class="tip" id="fs13">type Plurality =<br />&#160;&#160;| Singular<br />&#160;&#160;| Plural<br /><br />Full name: index.Plurality</div>
-<div class="tip" id="fs14">union case Plurality.Singular: Plurality</div>
-<div class="tip" id="fs15">union case Plurality.Plural: Plurality</div>
-<div class="tip" id="fs16">val speak : Language * Gender * Plurality -&gt; string<br /><br />Full name: index.speak</div>
-<div class="tip" id="fs17">val phrase : Language * Gender * Plurality</div>
-<div class="tip" id="fs18">val speak : Gender * Plurality -&gt; string<br /><br />Full name: index.speak</div>
-<div class="tip" id="fs19">val phrase : Gender * Plurality</div>
+<div class="tip" id="fs6">type Conference =<br />&#160;&#160;{Title: string;<br />&#160;&#160;&#160;Country: string;<br />&#160;&#160;&#160;Subject: string;}<br /><br />Full name: index.Conference</div>
+<div class="tip" id="fs7">Conference.Title: string</div>
+<div class="tip" id="fs8">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs9">Conference.Country: string</div>
+<div class="tip" id="fs10">Conference.Subject: string</div>
+<div class="tip" id="fs11">val describe : conf:Conference -&gt; string<br /><br />Full name: index.describe</div>
+<div class="tip" id="fs12">val conf : Conference</div>
+<div class="tip" id="fs13">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
+<div class="tip" id="fs14">val speak : &#39;a * &#39;b -&gt; string<br /><br />Full name: index.speak</div>
+<div class="tip" id="fs15">val phrase : &#39;a * &#39;b</div>
+<div class="tip" id="fs16">val Male : &#39;a</div>
+<div class="tip" id="fs17">val Singular : &#39;b</div>
+<div class="tip" id="fs18">val Plural : &#39;b</div>
+<div class="tip" id="fs19">val Female : &#39;a</div>
 <div class="tip" id="fs20">namespace System</div>
 <div class="tip" id="fs21">type Weather =<br />&#160;&#160;| Sunny of temperature: int<br />&#160;&#160;| Wet of temperature: int * windSpeed: int<br />&#160;&#160;| Cold of temperature: int * snowFall: int<br /><br />Full name: index.Weather</div>
 <div class="tip" id="fs22">union case Weather.Sunny: temperature: int -&gt; Weather</div>
@@ -107,38 +107,37 @@
 <div class="tip" id="fs59">val act : contactDetails:ContactType -&gt; string<br /><br />Full name: index.act</div>
 <div class="tip" id="fs60">val contactDetails : ContactType</div>
 <div class="tip" id="fs61">val number : string</div>
-<div class="tip" id="fs62">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.sprintf</div>
-<div class="tip" id="fs63">val address : string</div>
-<div class="tip" id="fs64">val firstLine : string</div>
-<div class="tip" id="fs65">val postCode : string</div>
-<div class="tip" id="fs66">type Circle =<br />&#160;&#160;{Radius: int;<br />&#160;&#160;&#160;Circle: obj;}<br /><br />Full name: index.Circle</div>
-<div class="tip" id="fs67">Circle.Radius: int</div>
-<div class="tip" id="fs68">Multiple items<br />Circle.Circle: obj<br /><br />--------------------<br />type Circle =<br />&#160;&#160;{Radius: int;<br />&#160;&#160;&#160;Circle: obj;}<br /><br />Full name: index.Circle</div>
-<div class="tip" id="fs69">Multiple items<br />union case EmailAddress.EmailAddress: string -&gt; EmailAddress<br /><br />--------------------<br />type EmailAddress = | EmailAddress of string<br /><br />Full name: index.EmailAddress</div>
-<div class="tip" id="fs70">Multiple items<br />union case TelephoneNumber.TelephoneNumber: string -&gt; TelephoneNumber<br /><br />--------------------<br />type TelephoneNumber = | TelephoneNumber of string<br /><br />Full name: index.TelephoneNumber</div>
-<div class="tip" id="fs71">val email : EmailAddress<br /><br />Full name: index.email</div>
-<div class="tip" id="fs72">val sendEmail : body:string -&gt; EmailAddress -&gt; unit<br /><br />Full name: index.sendEmail</div>
-<div class="tip" id="fs73">val body : string</div>
-<div class="tip" id="fs74">val email : string</div>
-<div class="tip" id="fs75">val sendWelcome : employee:&#39;a -&gt; unit<br /><br />Full name: index.sendWelcome</div>
-<div class="tip" id="fs76">val employee : &#39;a</div>
-<div class="tip" id="fs77">type RateLine =<br />&#160;&#160;{Market: string;<br />&#160;&#160;&#160;ProductName: string;<br />&#160;&#160;&#160;Origin: string;<br />&#160;&#160;&#160;Destination: string;<br />&#160;&#160;&#160;Rate: float;<br />&#160;&#160;&#160;MarketShare: int;<br />&#160;&#160;&#160;ShippedLastYear: float;}<br /><br />Full name: index.RateLine</div>
-<div class="tip" id="fs78">RateLine.Market: string</div>
-<div class="tip" id="fs79">RateLine.ProductName: string</div>
-<div class="tip" id="fs80">RateLine.Origin: string</div>
-<div class="tip" id="fs81">RateLine.Destination: string</div>
-<div class="tip" id="fs82">RateLine.Rate: float</div>
-<div class="tip" id="fs83">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.float<br /><br />--------------------<br />type float = Double<br /><br />Full name: Microsoft.FSharp.Core.float<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; = float<br /><br />Full name: Microsoft.FSharp.Core.float&lt;_&gt;</div>
-<div class="tip" id="fs84">RateLine.MarketShare: int</div>
-<div class="tip" id="fs85">RateLine.ShippedLastYear: float</div>
-<div class="tip" id="fs86">type Result&lt;&#39;T&gt; =<br />&#160;&#160;| Success of &#39;T<br />&#160;&#160;| Failure of error: string<br /><br />Full name: index.Result&lt;_&gt;</div>
-<div class="tip" id="fs87">union case Result.Success: &#39;T -&gt; Result&lt;&#39;T&gt;</div>
-<div class="tip" id="fs88">Multiple items<br />union case Result.Failure: error: string -&gt; Result&lt;&#39;T&gt;<br /><br />--------------------<br />active recognizer Failure: exn -&gt; string option<br /><br />Full name: Microsoft.FSharp.Core.Operators.( |Failure|_| )</div>
-<div class="tip" id="fs89">type Enricher = RateLine -&gt; Result&lt;RateLine&gt;<br /><br />Full name: index.Enricher</div>
-<div class="tip" id="fs90">val calculateRates : Enricher<br /><br />Full name: index.calculateRates</div>
-<div class="tip" id="fs91">val calculateRevenues : Enricher</div>
-<div class="tip" id="fs92">val calculateRouteInfo : Enricher</div>
-<div class="tip" id="fs93">val enrich : obj</div>
+<div class="tip" id="fs62">val address : string</div>
+<div class="tip" id="fs63">val firstLine : string</div>
+<div class="tip" id="fs64">val postCode : string</div>
+<div class="tip" id="fs65">type Circle =<br />&#160;&#160;{Radius: int;<br />&#160;&#160;&#160;Circle: obj;}<br /><br />Full name: index.Circle</div>
+<div class="tip" id="fs66">Circle.Radius: int</div>
+<div class="tip" id="fs67">Multiple items<br />Circle.Circle: obj<br /><br />--------------------<br />type Circle =<br />&#160;&#160;{Radius: int;<br />&#160;&#160;&#160;Circle: obj;}<br /><br />Full name: index.Circle</div>
+<div class="tip" id="fs68">Multiple items<br />union case EmailAddress.EmailAddress: string -&gt; EmailAddress<br /><br />--------------------<br />type EmailAddress = | EmailAddress of string<br /><br />Full name: index.EmailAddress</div>
+<div class="tip" id="fs69">Multiple items<br />union case TelephoneNumber.TelephoneNumber: string -&gt; TelephoneNumber<br /><br />--------------------<br />type TelephoneNumber = | TelephoneNumber of string<br /><br />Full name: index.TelephoneNumber</div>
+<div class="tip" id="fs70">val email : EmailAddress<br /><br />Full name: index.email</div>
+<div class="tip" id="fs71">val sendEmail : body:string -&gt; EmailAddress -&gt; unit<br /><br />Full name: index.sendEmail</div>
+<div class="tip" id="fs72">val body : string</div>
+<div class="tip" id="fs73">val email : string</div>
+<div class="tip" id="fs74">val sendWelcome : employee:&#39;a -&gt; unit<br /><br />Full name: index.sendWelcome</div>
+<div class="tip" id="fs75">val employee : &#39;a</div>
+<div class="tip" id="fs76">type RateLine =<br />&#160;&#160;{Market: string;<br />&#160;&#160;&#160;ProductName: string;<br />&#160;&#160;&#160;Origin: string;<br />&#160;&#160;&#160;Destination: string;<br />&#160;&#160;&#160;Rate: float;<br />&#160;&#160;&#160;MarketShare: int;<br />&#160;&#160;&#160;ShippedLastYear: float;}<br /><br />Full name: index.RateLine</div>
+<div class="tip" id="fs77">RateLine.Market: string</div>
+<div class="tip" id="fs78">RateLine.ProductName: string</div>
+<div class="tip" id="fs79">RateLine.Origin: string</div>
+<div class="tip" id="fs80">RateLine.Destination: string</div>
+<div class="tip" id="fs81">RateLine.Rate: float</div>
+<div class="tip" id="fs82">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.float<br /><br />--------------------<br />type float = Double<br /><br />Full name: Microsoft.FSharp.Core.float<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; = float<br /><br />Full name: Microsoft.FSharp.Core.float&lt;_&gt;</div>
+<div class="tip" id="fs83">RateLine.MarketShare: int</div>
+<div class="tip" id="fs84">RateLine.ShippedLastYear: float</div>
+<div class="tip" id="fs85">type Result&lt;&#39;T&gt; =<br />&#160;&#160;| Success of &#39;T<br />&#160;&#160;| Failure of error: string<br /><br />Full name: index.Result&lt;_&gt;</div>
+<div class="tip" id="fs86">union case Result.Success: &#39;T -&gt; Result&lt;&#39;T&gt;</div>
+<div class="tip" id="fs87">Multiple items<br />union case Result.Failure: error: string -&gt; Result&lt;&#39;T&gt;<br /><br />--------------------<br />active recognizer Failure: exn -&gt; string option<br /><br />Full name: Microsoft.FSharp.Core.Operators.( |Failure|_| )</div>
+<div class="tip" id="fs88">type Enricher = RateLine -&gt; Result&lt;RateLine&gt;<br /><br />Full name: index.Enricher</div>
+<div class="tip" id="fs89">val calculateRates : Enricher<br /><br />Full name: index.calculateRates</div>
+<div class="tip" id="fs90">val calculateRevenues : Enricher</div>
+<div class="tip" id="fs91">val calculateRouteInfo : Enricher</div>
+<div class="tip" id="fs92">val enrich : obj</div>
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
@@ -170,6 +169,8 @@
 <li>Real-world case study</li>
 <li>Demo</li>
 </ul>
+<p><em></em></p>
+<p>(Disclaimer: May not contain any DDD buzzwords)</p>
 </section>
 </section>
 <section >
@@ -220,7 +221,7 @@
 <li>Sum Types</li>
 <li>Nullability</li>
 <li>Units of Measure</li>
-<li>Dependent Types etc.</li>
+<li>e.g. Dependent Types etc.</li>
 </ul>
 </section>
 <section >
@@ -709,8 +710,11 @@ No more dich / dir / euch / Sie
 <h3>How can rich types help us?</h3>
 </section>
 <section >
+<h2>Communication...</h2>
+</section>
+<section >
 <h2>Guiding the compiler</h2>
-<p>A compiler makes use of type information to <em>help us</em></p>
+<p>A compiler should be <em>your friend</em>.</p>
 <p><em></em></p>
 <ul>
 <li>Trap errors early</li>
@@ -746,29 +750,19 @@ No more dich / dir / euch / Sie
 </section>
 <section >
 <h3>Type Inference #3</h3>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
-<span class="l"> 2: </span>
-<span class="l"> 3: </span>
-<span class="l"> 4: </span>
-<span class="l"> 5: </span>
-<span class="l"> 6: </span>
-<span class="l"> 7: </span>
-<span class="l"> 8: </span>
-<span class="l"> 9: </span>
-<span class="l">10: </span>
-<span class="l">11: </span>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="t">Gender</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="p">Male</span> | <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="p">Female</span>
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="t">Language</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="p">English</span> | <span onmouseout="hideTip(event, 'fs11', 12)" onmouseover="showTip(event, 'fs11', 12)" class="p">German</span> | <span onmouseout="hideTip(event, 'fs12', 13)" onmouseover="showTip(event, 'fs12', 13)" class="p">Hebrew</span>
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs13', 14)" onmouseover="showTip(event, 'fs13', 14)" class="t">Plurality</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 15)" onmouseover="showTip(event, 'fs14', 15)" class="p">Singular</span> | <span onmouseout="hideTip(event, 'fs15', 16)" onmouseover="showTip(event, 'fs15', 16)" class="p">Plural</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="t">Conference</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="i">Title</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="t">string</span>; <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="i">Country</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 11)" onmouseover="showTip(event, 'fs8', 11)" class="t">string</span>; <span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="i">Subject</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="t">string</span> }
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 17)" onmouseover="showTip(event, 'fs16', 17)" class="f">speak</span> <span onmouseout="hideTip(event, 'fs17', 18)" onmouseover="showTip(event, 'fs17', 18)" class="i">phrase</span> <span class="o">=</span>
-    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs17', 19)" onmouseover="showTip(event, 'fs17', 19)" class="i">phrase</span> <span class="k">with</span>
-    | <span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="p">English</span>, <span onmouseout="hideTip(event, 'fs7', 21)" onmouseover="showTip(event, 'fs7', 21)" class="p">Male</span>, <span onmouseout="hideTip(event, 'fs14', 22)" onmouseover="showTip(event, 'fs14', 22)" class="p">Singular</span> <span class="k">-&gt;</span> <span class="s">&quot;I love you&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs11', 23)" onmouseover="showTip(event, 'fs11', 23)" class="p">German</span>, <span onmouseout="hideTip(event, 'fs7', 24)" onmouseover="showTip(event, 'fs7', 24)" class="p">Male</span>, <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="p">Plural</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe euch&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs12', 26)" onmouseover="showTip(event, 'fs12', 26)" class="p">Hebrew</span>, <span onmouseout="hideTip(event, 'fs8', 27)" onmouseover="showTip(event, 'fs8', 27)" class="p">Female</span>, <span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="p">Singular</span> <span class="k">-&gt;</span> <span class="s">&quot;ani ohev otach&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="f">describe</span> <span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="i">conf</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="f">sprintf</span> <span class="s">&quot;The &#39;</span><span class="pf">%s</span><span class="s">&#39; conference in </span><span class="pf">%s</span><span class="s"> is about </span><span class="pf">%s</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs12', 17)" onmouseover="showTip(event, 'fs12', 17)" class="i">conf</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs7', 18)" onmouseover="showTip(event, 'fs7', 18)" class="i">Title</span> <span onmouseout="hideTip(event, 'fs12', 19)" onmouseover="showTip(event, 'fs12', 19)" class="i">conf</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 20)" onmouseover="showTip(event, 'fs9', 20)" class="i">Country</span> <span onmouseout="hideTip(event, 'fs12', 21)" onmouseover="showTip(event, 'fs12', 21)" class="i">conf</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 22)" onmouseover="showTip(event, 'fs10', 22)" class="i">Subject</span>
 
-<span class="c">// phrase is a Tuple of (Language * Gender * Plurality)</span>
+<span class="c">// conf is inferred as Conference.</span>
 </code></pre></td>
 </tr>
 </table>
@@ -783,11 +777,11 @@ No more dich / dir / euch / Sie
 <span class="l">6: </span>
 <span class="l">7: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="f">speak</span> <span onmouseout="hideTip(event, 'fs19', 30)" onmouseover="showTip(event, 'fs19', 30)" class="i">phrase</span> <span class="o">=</span>
-    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs19', 31)" onmouseover="showTip(event, 'fs19', 31)" class="i">phrase</span> <span class="k">with</span>
-    | <span onmouseout="hideTip(event, 'fs7', 32)" onmouseover="showTip(event, 'fs7', 32)" class="p">Male</span>, <span onmouseout="hideTip(event, 'fs14', 33)" onmouseover="showTip(event, 'fs14', 33)" class="p">Singular</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe dich&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs7', 34)" onmouseover="showTip(event, 'fs7', 34)" class="p">Male</span>, <span onmouseout="hideTip(event, 'fs15', 35)" onmouseover="showTip(event, 'fs15', 35)" class="p">Plural</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe euch&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs8', 36)" onmouseover="showTip(event, 'fs8', 36)" class="p">Female</span>, <span onmouseout="hideTip(event, 'fs14', 37)" onmouseover="showTip(event, 'fs14', 37)" class="p">Singular</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe dich&quot;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 23)" onmouseover="showTip(event, 'fs14', 23)" class="f">speak</span> <span onmouseout="hideTip(event, 'fs15', 24)" onmouseover="showTip(event, 'fs15', 24)" class="i">phrase</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="i">phrase</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="i">Male</span>, <span onmouseout="hideTip(event, 'fs17', 27)" onmouseover="showTip(event, 'fs17', 27)" class="i">Singular</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe dich&quot;</span>
+    | <span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="i">Male</span>, <span onmouseout="hideTip(event, 'fs18', 29)" onmouseover="showTip(event, 'fs18', 29)" class="i">Plural</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe euch&quot;</span>
+    | <span onmouseout="hideTip(event, 'fs19', 30)" onmouseover="showTip(event, 'fs19', 30)" class="i">Female</span>, <span onmouseout="hideTip(event, 'fs17', 31)" onmouseover="showTip(event, 'fs17', 31)" class="i">Singular</span> <span class="k">-&gt;</span> <span class="s">&quot;ich liebe dich&quot;</span>
 
 <span class="c">// compiler warns that we have not handled the (Female + Plural) case!</span>
 </code></pre></td>
@@ -796,6 +790,13 @@ No more dich / dir / euch / Sie
 </section>
 <section >
 <h2>Sum Types</h2>
+<ul>
+<li>Allows us to model one-of / mutally-exclusive scenarios</li>
+<li>No <em>great</em> solution to this in most OO languages</li>
+<li>Happens all the time</li>
+</ul>
+</section>
+<section >
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
 <span class="l"> 2: </span>
 <span class="l"> 3: </span>
@@ -811,20 +812,20 @@ No more dich / dir / euch / Sie
 <span class="l">13: </span>
 <span class="l">14: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs20', 38)" onmouseover="showTip(event, 'fs20', 38)" class="i">System</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs20', 32)" onmouseover="showTip(event, 'fs20', 32)" class="i">System</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs21', 39)" onmouseover="showTip(event, 'fs21', 39)" class="t">Weather</span> <span class="o">=</span>
-| <span onmouseout="hideTip(event, 'fs22', 40)" onmouseover="showTip(event, 'fs22', 40)" class="p">Sunny</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 41)" onmouseover="showTip(event, 'fs2', 41)" class="t">int</span>
-| <span onmouseout="hideTip(event, 'fs23', 42)" onmouseover="showTip(event, 'fs23', 42)" class="p">Wet</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 43)" onmouseover="showTip(event, 'fs2', 43)" class="t">int</span> <span class="o">*</span> <span class="i">windSpeed</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 44)" onmouseover="showTip(event, 'fs2', 44)" class="t">int</span>
-| <span onmouseout="hideTip(event, 'fs24', 45)" onmouseover="showTip(event, 'fs24', 45)" class="p">Cold</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 46)" onmouseover="showTip(event, 'fs2', 46)" class="t">int</span> <span class="o">*</span> <span class="i">snowFall</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 47)" onmouseover="showTip(event, 'fs2', 47)" class="t">int</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs21', 33)" onmouseover="showTip(event, 'fs21', 33)" class="t">Weather</span> <span class="o">=</span>
+| <span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="p">Sunny</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 35)" onmouseover="showTip(event, 'fs2', 35)" class="t">int</span>
+| <span onmouseout="hideTip(event, 'fs23', 36)" onmouseover="showTip(event, 'fs23', 36)" class="p">Wet</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 37)" onmouseover="showTip(event, 'fs2', 37)" class="t">int</span> <span class="o">*</span> <span class="i">windSpeed</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 38)" onmouseover="showTip(event, 'fs2', 38)" class="t">int</span>
+| <span onmouseout="hideTip(event, 'fs24', 39)" onmouseover="showTip(event, 'fs24', 39)" class="p">Cold</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 40)" onmouseover="showTip(event, 'fs2', 40)" class="t">int</span> <span class="o">*</span> <span class="i">snowFall</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 41)" onmouseover="showTip(event, 'fs2', 41)" class="t">int</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs25', 48)" onmouseover="showTip(event, 'fs25', 48)" class="t">Forecast</span> <span class="o">=</span>
-    { <span onmouseout="hideTip(event, 'fs26', 49)" onmouseover="showTip(event, 'fs26', 49)" class="i">ForecastDate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs27', 50)" onmouseover="showTip(event, 'fs27', 50)" class="t">DateTime</span>
-      <span onmouseout="hideTip(event, 'fs28', 51)" onmouseover="showTip(event, 'fs28', 51)" class="i">Prediction</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs21', 52)" onmouseover="showTip(event, 'fs21', 52)" class="t">Weather</span> }
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs25', 42)" onmouseover="showTip(event, 'fs25', 42)" class="t">Forecast</span> <span class="o">=</span>
+    { <span onmouseout="hideTip(event, 'fs26', 43)" onmouseover="showTip(event, 'fs26', 43)" class="i">ForecastDate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs27', 44)" onmouseover="showTip(event, 'fs27', 44)" class="t">DateTime</span>
+      <span onmouseout="hideTip(event, 'fs28', 45)" onmouseover="showTip(event, 'fs28', 45)" class="i">Prediction</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs21', 46)" onmouseover="showTip(event, 'fs21', 46)" class="t">Weather</span> }
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 53)" onmouseover="showTip(event, 'fs29', 53)" class="i">forecast</span> <span class="o">=</span>
-    { <span class="i">ForecastDate</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 54)" onmouseover="showTip(event, 'fs27', 54)" class="t">DateTime</span>(<span class="n">2017</span>, <span class="n">10</span>, <span class="n">17</span>)
-      <span class="i">Prediction</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs22', 55)" onmouseover="showTip(event, 'fs22', 55)" class="p">Sunny</span> <span class="n">10</span> }
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 47)" onmouseover="showTip(event, 'fs29', 47)" class="i">forecast</span> <span class="o">=</span>
+    { <span class="i">ForecastDate</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 48)" onmouseover="showTip(event, 'fs27', 48)" class="t">DateTime</span>(<span class="n">2017</span>, <span class="n">10</span>, <span class="n">17</span>)
+      <span class="i">Prediction</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs22', 49)" onmouseover="showTip(event, 'fs22', 49)" class="p">Sunny</span> <span class="n">10</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -838,12 +839,12 @@ No more dich / dir / euch / Sie
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 56)" onmouseover="showTip(event, 'fs30', 56)" class="f">describe</span> <span onmouseout="hideTip(event, 'fs31', 57)" onmouseover="showTip(event, 'fs31', 57)" class="i">forecast</span> <span class="o">=</span>
-    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs31', 58)" onmouseover="showTip(event, 'fs31', 58)" class="i">forecast</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 59)" onmouseover="showTip(event, 'fs28', 59)" class="i">Prediction</span> <span class="k">with</span>
-    | <span onmouseout="hideTip(event, 'fs22', 60)" onmouseover="showTip(event, 'fs22', 60)" class="p">Sunny</span> _ <span class="k">-&gt;</span> <span class="s">&quot;Sunny!&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs23', 61)" onmouseover="showTip(event, 'fs23', 61)" class="p">Wet</span> (_, <span onmouseout="hideTip(event, 'fs32', 62)" onmouseover="showTip(event, 'fs32', 62)" class="i">windSpeed</span>) <span class="k">when</span> <span onmouseout="hideTip(event, 'fs32', 63)" onmouseover="showTip(event, 'fs32', 63)" class="i">windSpeed</span> <span class="o">&gt;</span> <span class="n">10</span> <span class="k">-&gt;</span> <span class="s">&quot;Wet and windy!&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs24', 64)" onmouseover="showTip(event, 'fs24', 64)" class="p">Cold</span> (_, <span class="n">0</span>) <span class="k">-&gt;</span> <span class="s">&quot;It&#39;s cold!&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs24', 65)" onmouseover="showTip(event, 'fs24', 65)" class="p">Cold</span> _ <span class="k">-&gt;</span> <span class="s">&quot;It&#39;s cold and snowing!!&quot;</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 50)" onmouseover="showTip(event, 'fs30', 50)" class="f">describe</span> <span onmouseout="hideTip(event, 'fs31', 51)" onmouseover="showTip(event, 'fs31', 51)" class="i">forecast</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs31', 52)" onmouseover="showTip(event, 'fs31', 52)" class="i">forecast</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs28', 53)" onmouseover="showTip(event, 'fs28', 53)" class="i">Prediction</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs22', 54)" onmouseover="showTip(event, 'fs22', 54)" class="p">Sunny</span> _ <span class="k">-&gt;</span> <span class="s">&quot;Sunny!&quot;</span>
+    | <span onmouseout="hideTip(event, 'fs23', 55)" onmouseover="showTip(event, 'fs23', 55)" class="p">Wet</span> (_, <span onmouseout="hideTip(event, 'fs32', 56)" onmouseover="showTip(event, 'fs32', 56)" class="i">windSpeed</span>) <span class="k">when</span> <span onmouseout="hideTip(event, 'fs32', 57)" onmouseover="showTip(event, 'fs32', 57)" class="i">windSpeed</span> <span class="o">&gt;</span> <span class="n">10</span> <span class="k">-&gt;</span> <span class="s">&quot;Wet and windy!&quot;</span>
+    | <span onmouseout="hideTip(event, 'fs24', 58)" onmouseover="showTip(event, 'fs24', 58)" class="p">Cold</span> (_, <span class="n">0</span>) <span class="k">-&gt;</span> <span class="s">&quot;It&#39;s cold!&quot;</span>
+    | <span onmouseout="hideTip(event, 'fs24', 59)" onmouseover="showTip(event, 'fs24', 59)" class="p">Cold</span> _ <span class="k">-&gt;</span> <span class="s">&quot;It&#39;s cold and snowing!!&quot;</span>
 </code></pre></td>
 </tr>
 </table>
@@ -866,15 +867,15 @@ No more dich / dir / euch / Sie
 <span class="l">8: </span>
 <span class="l">9: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs20', 66)" onmouseover="showTip(event, 'fs20', 66)" class="i">System</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs20', 60)" onmouseover="showTip(event, 'fs20', 60)" class="i">System</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs33', 67)" onmouseover="showTip(event, 'fs33', 67)" class="t">OptionalForecast</span> <span class="o">=</span>
-    { <span onmouseout="hideTip(event, 'fs34', 68)" onmouseover="showTip(event, 'fs34', 68)" class="i">ForecastDate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs27', 69)" onmouseover="showTip(event, 'fs27', 69)" class="t">DateTime</span>
-      <span onmouseout="hideTip(event, 'fs35', 70)" onmouseover="showTip(event, 'fs35', 70)" class="i">Prediction</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs21', 71)" onmouseover="showTip(event, 'fs21', 71)" class="t">Weather</span> <span onmouseout="hideTip(event, 'fs36', 72)" onmouseover="showTip(event, 'fs36', 72)" class="t">option</span> } <span class="c">// note the &quot;option&quot; marker</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs33', 61)" onmouseover="showTip(event, 'fs33', 61)" class="t">OptionalForecast</span> <span class="o">=</span>
+    { <span onmouseout="hideTip(event, 'fs34', 62)" onmouseover="showTip(event, 'fs34', 62)" class="i">ForecastDate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs27', 63)" onmouseover="showTip(event, 'fs27', 63)" class="t">DateTime</span>
+      <span onmouseout="hideTip(event, 'fs35', 64)" onmouseover="showTip(event, 'fs35', 64)" class="i">Prediction</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs21', 65)" onmouseover="showTip(event, 'fs21', 65)" class="t">Weather</span> <span onmouseout="hideTip(event, 'fs36', 66)" onmouseover="showTip(event, 'fs36', 66)" class="t">option</span> } <span class="c">// note the &quot;option&quot; marker</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs37', 73)" onmouseover="showTip(event, 'fs37', 73)" class="i">forecasts</span> <span class="o">=</span>
-    [ { <span class="i">ForecastDate</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 74)" onmouseover="showTip(event, 'fs27', 74)" class="t">DateTime</span>(<span class="n">2017</span>, <span class="n">10</span>, <span class="n">17</span>); <span class="i">Prediction</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs38', 75)" onmouseover="showTip(event, 'fs38', 75)" class="p">Some</span>(<span onmouseout="hideTip(event, 'fs22', 76)" onmouseover="showTip(event, 'fs22', 76)" class="p">Sunny</span> <span class="n">5</span>) }
-      { <span class="i">ForecastDate</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 77)" onmouseover="showTip(event, 'fs27', 77)" class="t">DateTime</span>(<span class="n">2017</span>, <span class="n">10</span>, <span class="n">18</span>); <span class="i">Prediction</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs39', 78)" onmouseover="showTip(event, 'fs39', 78)" class="p">None</span> } ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs37', 67)" onmouseover="showTip(event, 'fs37', 67)" class="i">forecasts</span> <span class="o">=</span>
+    [ { <span class="i">ForecastDate</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 68)" onmouseover="showTip(event, 'fs27', 68)" class="t">DateTime</span>(<span class="n">2017</span>, <span class="n">10</span>, <span class="n">17</span>); <span class="i">Prediction</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs38', 69)" onmouseover="showTip(event, 'fs38', 69)" class="p">Some</span>(<span onmouseout="hideTip(event, 'fs22', 70)" onmouseover="showTip(event, 'fs22', 70)" class="p">Sunny</span> <span class="n">5</span>) }
+      { <span class="i">ForecastDate</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs27', 71)" onmouseover="showTip(event, 'fs27', 71)" class="t">DateTime</span>(<span class="n">2017</span>, <span class="n">10</span>, <span class="n">18</span>); <span class="i">Prediction</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs39', 72)" onmouseover="showTip(event, 'fs39', 72)" class="p">None</span> } ]
 </code></pre></td>
 </tr>
 </table>
@@ -889,12 +890,12 @@ No more dich / dir / euch / Sie
 <span class="l">5: </span>
 <span class="l">6: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs20', 79)" onmouseover="showTip(event, 'fs20', 79)" class="i">System</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs20', 73)" onmouseover="showTip(event, 'fs20', 73)" class="i">System</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 80)" onmouseover="showTip(event, 'fs40', 80)" class="f">tryDescribe</span> <span onmouseout="hideTip(event, 'fs41', 81)" onmouseover="showTip(event, 'fs41', 81)" class="i">weather</span> <span class="o">=</span>
-    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs41', 82)" onmouseover="showTip(event, 'fs41', 82)" class="i">weather</span> <span class="k">with</span>
-    | <span onmouseout="hideTip(event, 'fs39', 83)" onmouseover="showTip(event, 'fs39', 83)" class="p">None</span> <span class="k">-&gt;</span> <span class="s">&quot;Sorry, no forecast available!&quot;</span>
-    | <span onmouseout="hideTip(event, 'fs38', 84)" onmouseover="showTip(event, 'fs38', 84)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs31', 85)" onmouseover="showTip(event, 'fs31', 85)" class="i">forecast</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs30', 86)" onmouseover="showTip(event, 'fs30', 86)" class="f">describe</span> <span onmouseout="hideTip(event, 'fs31', 87)" onmouseover="showTip(event, 'fs31', 87)" class="i">forecast</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 74)" onmouseover="showTip(event, 'fs40', 74)" class="f">tryDescribe</span> <span onmouseout="hideTip(event, 'fs41', 75)" onmouseover="showTip(event, 'fs41', 75)" class="i">weather</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs41', 76)" onmouseover="showTip(event, 'fs41', 76)" class="i">weather</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs39', 77)" onmouseover="showTip(event, 'fs39', 77)" class="p">None</span> <span class="k">-&gt;</span> <span class="s">&quot;Sorry, no forecast available!&quot;</span>
+    | <span onmouseout="hideTip(event, 'fs38', 78)" onmouseover="showTip(event, 'fs38', 78)" class="p">Some</span> <span onmouseout="hideTip(event, 'fs31', 79)" onmouseover="showTip(event, 'fs31', 79)" class="i">forecast</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs30', 80)" onmouseover="showTip(event, 'fs30', 80)" class="f">describe</span> <span onmouseout="hideTip(event, 'fs31', 81)" onmouseover="showTip(event, 'fs31', 81)" class="i">forecast</span>
 </code></pre></td>
 </tr>
 </table>
@@ -912,15 +913,15 @@ No more dich / dir / euch / Sie
 <span class="l">8: </span>
 <span class="l">9: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs42', 88)" onmouseover="showTip(event, 'fs42', 88)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs43', 89)" onmouseover="showTip(event, 'fs43', 89)" class="t">celcius</span>
-[&lt;<span onmouseout="hideTip(event, 'fs42', 90)" onmouseover="showTip(event, 'fs42', 90)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs44', 91)" onmouseover="showTip(event, 'fs44', 91)" class="t">cm</span>
-[&lt;<span onmouseout="hideTip(event, 'fs42', 92)" onmouseover="showTip(event, 'fs42', 92)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs45', 93)" onmouseover="showTip(event, 'fs45', 93)" class="t">km</span>
-[&lt;<span onmouseout="hideTip(event, 'fs42', 94)" onmouseover="showTip(event, 'fs42', 94)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs46', 95)" onmouseover="showTip(event, 'fs46', 95)" class="t">hour</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">[&lt;<span onmouseout="hideTip(event, 'fs42', 82)" onmouseover="showTip(event, 'fs42', 82)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs43', 83)" onmouseover="showTip(event, 'fs43', 83)" class="t">celcius</span>
+[&lt;<span onmouseout="hideTip(event, 'fs42', 84)" onmouseover="showTip(event, 'fs42', 84)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs44', 85)" onmouseover="showTip(event, 'fs44', 85)" class="t">cm</span>
+[&lt;<span onmouseout="hideTip(event, 'fs42', 86)" onmouseover="showTip(event, 'fs42', 86)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs45', 87)" onmouseover="showTip(event, 'fs45', 87)" class="t">km</span>
+[&lt;<span onmouseout="hideTip(event, 'fs42', 88)" onmouseover="showTip(event, 'fs42', 88)" class="t">Measure</span>&gt;] <span class="k">type</span> <span onmouseout="hideTip(event, 'fs46', 89)" onmouseover="showTip(event, 'fs46', 89)" class="t">hour</span>
 
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs47', 96)" onmouseover="showTip(event, 'fs47', 96)" class="t">BetterWeather</span> <span class="o">=</span>
-| <span onmouseout="hideTip(event, 'fs48', 97)" onmouseover="showTip(event, 'fs48', 97)" class="p">Sunny</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 98)" onmouseover="showTip(event, 'fs2', 98)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs43', 99)" onmouseover="showTip(event, 'fs43', 99)" class="t">celcius</span><span class="o">&gt;</span>
-| <span onmouseout="hideTip(event, 'fs49', 100)" onmouseover="showTip(event, 'fs49', 100)" class="p">Wet</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 101)" onmouseover="showTip(event, 'fs2', 101)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs43', 102)" onmouseover="showTip(event, 'fs43', 102)" class="t">celcius</span><span class="o">&gt;</span> <span class="o">*</span> <span class="i">windSpeed</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 103)" onmouseover="showTip(event, 'fs2', 103)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs45', 104)" onmouseover="showTip(event, 'fs45', 104)" class="t">km</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs46', 105)" onmouseover="showTip(event, 'fs46', 105)" class="t">hour</span><span class="o">&gt;</span>
-| <span onmouseout="hideTip(event, 'fs50', 106)" onmouseover="showTip(event, 'fs50', 106)" class="p">Cold</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 107)" onmouseover="showTip(event, 'fs2', 107)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs43', 108)" onmouseover="showTip(event, 'fs43', 108)" class="t">celcius</span><span class="o">&gt;</span> <span class="o">*</span> <span class="i">snowFall</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 109)" onmouseover="showTip(event, 'fs2', 109)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs44', 110)" onmouseover="showTip(event, 'fs44', 110)" class="t">cm</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs46', 111)" onmouseover="showTip(event, 'fs46', 111)" class="t">hour</span><span class="o">&gt;</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs47', 90)" onmouseover="showTip(event, 'fs47', 90)" class="t">BetterWeather</span> <span class="o">=</span>
+| <span onmouseout="hideTip(event, 'fs48', 91)" onmouseover="showTip(event, 'fs48', 91)" class="p">Sunny</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 92)" onmouseover="showTip(event, 'fs2', 92)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs43', 93)" onmouseover="showTip(event, 'fs43', 93)" class="t">celcius</span><span class="o">&gt;</span>
+| <span onmouseout="hideTip(event, 'fs49', 94)" onmouseover="showTip(event, 'fs49', 94)" class="p">Wet</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 95)" onmouseover="showTip(event, 'fs2', 95)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs43', 96)" onmouseover="showTip(event, 'fs43', 96)" class="t">celcius</span><span class="o">&gt;</span> <span class="o">*</span> <span class="i">windSpeed</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 97)" onmouseover="showTip(event, 'fs2', 97)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs45', 98)" onmouseover="showTip(event, 'fs45', 98)" class="t">km</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs46', 99)" onmouseover="showTip(event, 'fs46', 99)" class="t">hour</span><span class="o">&gt;</span>
+| <span onmouseout="hideTip(event, 'fs50', 100)" onmouseover="showTip(event, 'fs50', 100)" class="p">Cold</span> <span class="k">of</span> <span class="i">temperature</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 101)" onmouseover="showTip(event, 'fs2', 101)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs43', 102)" onmouseover="showTip(event, 'fs43', 102)" class="t">celcius</span><span class="o">&gt;</span> <span class="o">*</span> <span class="i">snowFall</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs2', 103)" onmouseover="showTip(event, 'fs2', 103)" class="t">int</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs44', 104)" onmouseover="showTip(event, 'fs44', 104)" class="t">cm</span><span class="o">/</span><span onmouseout="hideTip(event, 'fs46', 105)" onmouseover="showTip(event, 'fs46', 105)" class="t">hour</span><span class="o">&gt;</span>
 </code></pre></td>
 </tr>
 </table>
@@ -938,8 +939,8 @@ No more dich / dir / euch / Sie
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs51', 112)" onmouseover="showTip(event, 'fs51', 112)" class="t">Employee</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs52', 113)" onmouseover="showTip(event, 'fs52', 113)" class="i">EmployeeId</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 114)" onmouseover="showTip(event, 'fs2', 114)" class="t">int</span> }
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs53', 115)" onmouseover="showTip(event, 'fs53', 115)" class="i">employee</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 116)" onmouseover="showTip(event, 'fs51', 116)" class="t">Employee</span> <span class="o">=</span> <span class="k">null</span> <span class="c">// will not compile!</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs51', 106)" onmouseover="showTip(event, 'fs51', 106)" class="t">Employee</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs52', 107)" onmouseover="showTip(event, 'fs52', 107)" class="i">EmployeeId</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 108)" onmouseover="showTip(event, 'fs2', 108)" class="t">int</span> }
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs53', 109)" onmouseover="showTip(event, 'fs53', 109)" class="i">employee</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs51', 110)" onmouseover="showTip(event, 'fs51', 110)" class="t">Employee</span> <span class="o">=</span> <span class="k">null</span> <span class="c">// will not compile!</span>
 </code></pre></td>
 </tr>
 </table>
@@ -964,16 +965,16 @@ No more dich / dir / euch / Sie
 <span class="l"> 9: </span>
 <span class="l">10: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs54', 117)" onmouseover="showTip(event, 'fs54', 117)" class="t">ContactType</span> <span class="o">=</span>
-    | <span onmouseout="hideTip(event, 'fs55', 118)" onmouseover="showTip(event, 'fs55', 118)" class="p">Telephone</span> <span class="k">of</span> <span class="i">telephoneNumber</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 119)" onmouseover="showTip(event, 'fs56', 119)" class="t">string</span>
-    | <span onmouseout="hideTip(event, 'fs57', 120)" onmouseover="showTip(event, 'fs57', 120)" class="p">Email</span> <span class="k">of</span> <span class="i">emailAddress</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 121)" onmouseover="showTip(event, 'fs56', 121)" class="t">string</span>
-    | <span onmouseout="hideTip(event, 'fs58', 122)" onmouseover="showTip(event, 'fs58', 122)" class="p">Postal</span> <span class="k">of</span> <span class="i">firstLine</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 123)" onmouseover="showTip(event, 'fs56', 123)" class="t">string</span> <span class="o">*</span> <span class="i">postCode</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 124)" onmouseover="showTip(event, 'fs56', 124)" class="t">string</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs54', 111)" onmouseover="showTip(event, 'fs54', 111)" class="t">ContactType</span> <span class="o">=</span>
+    | <span onmouseout="hideTip(event, 'fs55', 112)" onmouseover="showTip(event, 'fs55', 112)" class="p">Telephone</span> <span class="k">of</span> <span class="i">telephoneNumber</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 113)" onmouseover="showTip(event, 'fs56', 113)" class="t">string</span>
+    | <span onmouseout="hideTip(event, 'fs57', 114)" onmouseover="showTip(event, 'fs57', 114)" class="p">Email</span> <span class="k">of</span> <span class="i">emailAddress</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 115)" onmouseover="showTip(event, 'fs56', 115)" class="t">string</span>
+    | <span onmouseout="hideTip(event, 'fs58', 116)" onmouseover="showTip(event, 'fs58', 116)" class="p">Postal</span> <span class="k">of</span> <span class="i">firstLine</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 117)" onmouseover="showTip(event, 'fs56', 117)" class="t">string</span> <span class="o">*</span> <span class="i">postCode</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 118)" onmouseover="showTip(event, 'fs56', 118)" class="t">string</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs59', 125)" onmouseover="showTip(event, 'fs59', 125)" class="f">act</span> <span onmouseout="hideTip(event, 'fs60', 126)" onmouseover="showTip(event, 'fs60', 126)" class="i">contactDetails</span> <span class="o">=</span>
-    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs60', 127)" onmouseover="showTip(event, 'fs60', 127)" class="i">contactDetails</span> <span class="k">with</span>
-    | <span onmouseout="hideTip(event, 'fs55', 128)" onmouseover="showTip(event, 'fs55', 128)" class="p">Telephone</span> <span onmouseout="hideTip(event, 'fs61', 129)" onmouseover="showTip(event, 'fs61', 129)" class="i">number</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs62', 130)" onmouseover="showTip(event, 'fs62', 130)" class="f">sprintf</span> <span class="s">&quot;Calling </span><span class="pf">%s</span><span class="s">...&quot;</span> <span onmouseout="hideTip(event, 'fs61', 131)" onmouseover="showTip(event, 'fs61', 131)" class="i">number</span>
-    | <span onmouseout="hideTip(event, 'fs57', 132)" onmouseover="showTip(event, 'fs57', 132)" class="p">Email</span> <span onmouseout="hideTip(event, 'fs63', 133)" onmouseover="showTip(event, 'fs63', 133)" class="i">address</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs62', 134)" onmouseover="showTip(event, 'fs62', 134)" class="f">sprintf</span> <span class="s">&quot;Emailing </span><span class="pf">%s</span><span class="s">...&quot;</span> <span onmouseout="hideTip(event, 'fs63', 135)" onmouseover="showTip(event, 'fs63', 135)" class="i">address</span>
-    | <span onmouseout="hideTip(event, 'fs58', 136)" onmouseover="showTip(event, 'fs58', 136)" class="p">Postal</span> (<span onmouseout="hideTip(event, 'fs64', 137)" onmouseover="showTip(event, 'fs64', 137)" class="i">firstLine</span>, <span onmouseout="hideTip(event, 'fs65', 138)" onmouseover="showTip(event, 'fs65', 138)" class="i">postCode</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs62', 139)" onmouseover="showTip(event, 'fs62', 139)" class="f">sprintf</span> <span class="s">&quot;Writing </span><span class="pf">%s</span><span class="s"> </span><span class="pf">%s</span><span class="s">...&quot;</span> <span onmouseout="hideTip(event, 'fs64', 140)" onmouseover="showTip(event, 'fs64', 140)" class="i">firstLine</span> <span onmouseout="hideTip(event, 'fs65', 141)" onmouseover="showTip(event, 'fs65', 141)" class="i">postCode</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs59', 119)" onmouseover="showTip(event, 'fs59', 119)" class="f">act</span> <span onmouseout="hideTip(event, 'fs60', 120)" onmouseover="showTip(event, 'fs60', 120)" class="i">contactDetails</span> <span class="o">=</span>
+    <span class="k">match</span> <span onmouseout="hideTip(event, 'fs60', 121)" onmouseover="showTip(event, 'fs60', 121)" class="i">contactDetails</span> <span class="k">with</span>
+    | <span onmouseout="hideTip(event, 'fs55', 122)" onmouseover="showTip(event, 'fs55', 122)" class="p">Telephone</span> <span onmouseout="hideTip(event, 'fs61', 123)" onmouseover="showTip(event, 'fs61', 123)" class="i">number</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs13', 124)" onmouseover="showTip(event, 'fs13', 124)" class="f">sprintf</span> <span class="s">&quot;Calling </span><span class="pf">%s</span><span class="s">...&quot;</span> <span onmouseout="hideTip(event, 'fs61', 125)" onmouseover="showTip(event, 'fs61', 125)" class="i">number</span>
+    | <span onmouseout="hideTip(event, 'fs57', 126)" onmouseover="showTip(event, 'fs57', 126)" class="p">Email</span> <span onmouseout="hideTip(event, 'fs62', 127)" onmouseover="showTip(event, 'fs62', 127)" class="i">address</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs13', 128)" onmouseover="showTip(event, 'fs13', 128)" class="f">sprintf</span> <span class="s">&quot;Emailing </span><span class="pf">%s</span><span class="s">...&quot;</span> <span onmouseout="hideTip(event, 'fs62', 129)" onmouseover="showTip(event, 'fs62', 129)" class="i">address</span>
+    | <span onmouseout="hideTip(event, 'fs58', 130)" onmouseover="showTip(event, 'fs58', 130)" class="p">Postal</span> (<span onmouseout="hideTip(event, 'fs63', 131)" onmouseover="showTip(event, 'fs63', 131)" class="i">firstLine</span>, <span onmouseout="hideTip(event, 'fs64', 132)" onmouseover="showTip(event, 'fs64', 132)" class="i">postCode</span>) <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs13', 133)" onmouseover="showTip(event, 'fs13', 133)" class="f">sprintf</span> <span class="s">&quot;Writing </span><span class="pf">%s</span><span class="s"> </span><span class="pf">%s</span><span class="s">...&quot;</span> <span onmouseout="hideTip(event, 'fs63', 134)" onmouseover="showTip(event, 'fs63', 134)" class="i">firstLine</span> <span onmouseout="hideTip(event, 'fs64', 135)" onmouseover="showTip(event, 'fs64', 135)" class="i">postCode</span>
 </code></pre></td>
 </tr>
 </table>
@@ -985,7 +986,7 @@ No more dich / dir / euch / Sie
 <section >
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs66', 142)" onmouseover="showTip(event, 'fs66', 142)" class="t">Circle</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs67', 143)" onmouseover="showTip(event, 'fs67', 143)" class="i">Radius</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 144)" onmouseover="showTip(event, 'fs2', 144)" class="t">int</span>; <span onmouseout="hideTip(event, 'fs68', 145)" onmouseover="showTip(event, 'fs68', 145)" class="i">Circle</span> <span class="o">:</span> <span class="i">Point</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs65', 136)" onmouseover="showTip(event, 'fs65', 136)" class="t">Circle</span> <span class="o">=</span> { <span onmouseout="hideTip(event, 'fs66', 137)" onmouseover="showTip(event, 'fs66', 137)" class="i">Radius</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 138)" onmouseover="showTip(event, 'fs2', 138)" class="t">int</span>; <span onmouseout="hideTip(event, 'fs67', 139)" onmouseover="showTip(event, 'fs67', 139)" class="i">Circle</span> <span class="o">:</span> <span class="i">Point</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -1006,15 +1007,15 @@ No more dich / dir / euch / Sie
 <span class="l"> 9: </span>
 <span class="l">10: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs69', 146)" onmouseover="showTip(event, 'fs69', 146)" class="t">EmailAddress</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs69', 147)" onmouseover="showTip(event, 'fs69', 147)" class="p">EmailAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs56', 148)" onmouseover="showTip(event, 'fs56', 148)" class="t">string</span>
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs70', 149)" onmouseover="showTip(event, 'fs70', 149)" class="t">TelephoneNumber</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs70', 150)" onmouseover="showTip(event, 'fs70', 150)" class="p">TelephoneNumber</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs56', 151)" onmouseover="showTip(event, 'fs56', 151)" class="t">string</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs68', 140)" onmouseover="showTip(event, 'fs68', 140)" class="t">EmailAddress</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs68', 141)" onmouseover="showTip(event, 'fs68', 141)" class="p">EmailAddress</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs56', 142)" onmouseover="showTip(event, 'fs56', 142)" class="t">string</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs69', 143)" onmouseover="showTip(event, 'fs69', 143)" class="t">TelephoneNumber</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs69', 144)" onmouseover="showTip(event, 'fs69', 144)" class="p">TelephoneNumber</span> <span class="k">of</span> <span onmouseout="hideTip(event, 'fs56', 145)" onmouseover="showTip(event, 'fs56', 145)" class="t">string</span>
 
 <span class="c">// Not a string, but a string &quot;wrapped&quot; in an EmailAddress</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs71', 152)" onmouseover="showTip(event, 'fs71', 152)" class="i">email</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs69', 153)" onmouseover="showTip(event, 'fs69', 153)" class="p">EmailAddress</span> <span class="s">&quot;isaac@compositional-it.com&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs70', 146)" onmouseover="showTip(event, 'fs70', 146)" class="i">email</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs68', 147)" onmouseover="showTip(event, 'fs68', 147)" class="p">EmailAddress</span> <span class="s">&quot;isaac@compositional-it.com&quot;</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs72', 154)" onmouseover="showTip(event, 'fs72', 154)" class="f">sendEmail</span> (<span onmouseout="hideTip(event, 'fs73', 155)" onmouseover="showTip(event, 'fs73', 155)" class="i">body</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 156)" onmouseover="showTip(event, 'fs56', 156)" class="t">string</span>) (<span onmouseout="hideTip(event, 'fs69', 157)" onmouseover="showTip(event, 'fs69', 157)" class="p">EmailAddress</span> <span onmouseout="hideTip(event, 'fs74', 158)" onmouseover="showTip(event, 'fs74', 158)" class="i">email</span>) <span class="o">=</span> () <span class="c">// send emails</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs75', 159)" onmouseover="showTip(event, 'fs75', 159)" class="f">sendWelcome</span> <span onmouseout="hideTip(event, 'fs76', 160)" onmouseover="showTip(event, 'fs76', 160)" class="i">employee</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs72', 161)" onmouseover="showTip(event, 'fs72', 161)" class="f">sendEmail</span> <span class="s">&quot;Welcome to the company!&quot;</span> <span onmouseout="hideTip(event, 'fs76', 162)" onmouseover="showTip(event, 'fs76', 162)" class="i">employee</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs70', 163)" onmouseover="showTip(event, 'fs70', 163)" class="i">TelephoneNumber</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs71', 148)" onmouseover="showTip(event, 'fs71', 148)" class="f">sendEmail</span> (<span onmouseout="hideTip(event, 'fs72', 149)" onmouseover="showTip(event, 'fs72', 149)" class="i">body</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 150)" onmouseover="showTip(event, 'fs56', 150)" class="t">string</span>) (<span onmouseout="hideTip(event, 'fs68', 151)" onmouseover="showTip(event, 'fs68', 151)" class="p">EmailAddress</span> <span onmouseout="hideTip(event, 'fs73', 152)" onmouseover="showTip(event, 'fs73', 152)" class="i">email</span>) <span class="o">=</span> () <span class="c">// send emails</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs74', 153)" onmouseover="showTip(event, 'fs74', 153)" class="f">sendWelcome</span> <span onmouseout="hideTip(event, 'fs75', 154)" onmouseover="showTip(event, 'fs75', 154)" class="i">employee</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs71', 155)" onmouseover="showTip(event, 'fs71', 155)" class="f">sendEmail</span> <span class="s">&quot;Welcome to the company!&quot;</span> <span onmouseout="hideTip(event, 'fs75', 156)" onmouseover="showTip(event, 'fs75', 156)" class="i">employee</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 157)" onmouseover="showTip(event, 'fs69', 157)" class="i">TelephoneNumber</span>
     <span class="c">// Won&#39;t compile - TelephoneNumber is not an EmailAddress</span>
 </code></pre></td>
 </tr>
@@ -1081,6 +1082,7 @@ Lots of different data feeds
 <ul>
 <li>Records</li>
 <li>Primitive Types</li>
+<li>Type Providers</li>
 <li>Scripts for exploration</li>
 </ul>
 </section>
@@ -1113,14 +1115,14 @@ Lots of different data feeds
 <span class="l">7: </span>
 <span class="l">8: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs77', 164)" onmouseover="showTip(event, 'fs77', 164)" class="t">RateLine</span> <span class="o">=</span>
-    { <span onmouseout="hideTip(event, 'fs78', 165)" onmouseover="showTip(event, 'fs78', 165)" class="i">Market</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 166)" onmouseover="showTip(event, 'fs56', 166)" class="t">string</span>
-      <span onmouseout="hideTip(event, 'fs79', 167)" onmouseover="showTip(event, 'fs79', 167)" class="i">ProductName</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 168)" onmouseover="showTip(event, 'fs56', 168)" class="t">string</span>
-      <span onmouseout="hideTip(event, 'fs80', 169)" onmouseover="showTip(event, 'fs80', 169)" class="i">Origin</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 170)" onmouseover="showTip(event, 'fs56', 170)" class="t">string</span>
-      <span onmouseout="hideTip(event, 'fs81', 171)" onmouseover="showTip(event, 'fs81', 171)" class="i">Destination</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 172)" onmouseover="showTip(event, 'fs56', 172)" class="t">string</span>
-      <span onmouseout="hideTip(event, 'fs82', 173)" onmouseover="showTip(event, 'fs82', 173)" class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs83', 174)" onmouseover="showTip(event, 'fs83', 174)" class="t">float</span>
-      <span onmouseout="hideTip(event, 'fs84', 175)" onmouseover="showTip(event, 'fs84', 175)" class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 176)" onmouseover="showTip(event, 'fs2', 176)" class="t">int</span>
-      <span onmouseout="hideTip(event, 'fs85', 177)" onmouseover="showTip(event, 'fs85', 177)" class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs83', 178)" onmouseover="showTip(event, 'fs83', 178)" class="t">float</span> }
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs76', 158)" onmouseover="showTip(event, 'fs76', 158)" class="t">RateLine</span> <span class="o">=</span>
+    { <span onmouseout="hideTip(event, 'fs77', 159)" onmouseover="showTip(event, 'fs77', 159)" class="i">Market</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 160)" onmouseover="showTip(event, 'fs56', 160)" class="t">string</span>
+      <span onmouseout="hideTip(event, 'fs78', 161)" onmouseover="showTip(event, 'fs78', 161)" class="i">ProductName</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 162)" onmouseover="showTip(event, 'fs56', 162)" class="t">string</span>
+      <span onmouseout="hideTip(event, 'fs79', 163)" onmouseover="showTip(event, 'fs79', 163)" class="i">Origin</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 164)" onmouseover="showTip(event, 'fs56', 164)" class="t">string</span>
+      <span onmouseout="hideTip(event, 'fs80', 165)" onmouseover="showTip(event, 'fs80', 165)" class="i">Destination</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs56', 166)" onmouseover="showTip(event, 'fs56', 166)" class="t">string</span>
+      <span onmouseout="hideTip(event, 'fs81', 167)" onmouseover="showTip(event, 'fs81', 167)" class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs82', 168)" onmouseover="showTip(event, 'fs82', 168)" class="t">float</span>
+      <span onmouseout="hideTip(event, 'fs83', 169)" onmouseover="showTip(event, 'fs83', 169)" class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs2', 170)" onmouseover="showTip(event, 'fs2', 170)" class="t">int</span>
+      <span onmouseout="hideTip(event, 'fs84', 171)" onmouseover="showTip(event, 'fs84', 171)" class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs82', 172)" onmouseover="showTip(event, 'fs82', 172)" class="t">float</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -1135,14 +1137,14 @@ Lots of different data feeds
 <span class="l">7: </span>
 <span class="l">8: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs77', 179)" onmouseover="showTip(event, 'fs77', 179)" class="i">RateLine</span> <span class="o">=</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs76', 173)" onmouseover="showTip(event, 'fs76', 173)" class="i">RateLine</span> <span class="o">=</span>
     { <span class="i">Market</span> <span class="o">:</span> <span class="i">Market</span>
       <span class="i">ProductName</span> <span class="o">:</span> <span class="i">Product</span>
       <span class="i">Origin</span> <span class="o">:</span> <span class="i">Airport</span>
       <span class="i">Destination</span> <span class="o">:</span> <span class="i">Airport</span>
-      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs83', 180)" onmouseover="showTip(event, 'fs83', 180)" class="i">float</span><span class="o">&lt;</span><span class="i">Euro</span><span class="o">/</span><span class="i">Kg</span><span class="o">&gt;</span>
-      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs83', 181)" onmouseover="showTip(event, 'fs83', 181)" class="i">float</span><span class="o">&lt;</span><span class="i">percentage</span><span class="o">&gt;</span>
-      <span onmouseout="hideTip(event, 'fs85', 182)" onmouseover="showTip(event, 'fs85', 182)" class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs83', 183)" onmouseover="showTip(event, 'fs83', 183)" class="i">float</span><span class="o">&lt;</span><span class="i">kg</span><span class="o">&gt;</span> }
+      <span class="i">Rate</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs82', 174)" onmouseover="showTip(event, 'fs82', 174)" class="i">float</span><span class="o">&lt;</span><span class="i">Euro</span><span class="o">/</span><span class="i">Kg</span><span class="o">&gt;</span>
+      <span class="i">MarketShare</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs82', 175)" onmouseover="showTip(event, 'fs82', 175)" class="i">float</span><span class="o">&lt;</span><span class="i">percentage</span><span class="o">&gt;</span>
+      <span onmouseout="hideTip(event, 'fs84', 176)" onmouseover="showTip(event, 'fs84', 176)" class="i">ShippedLastYear</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs82', 177)" onmouseover="showTip(event, 'fs82', 177)" class="i">float</span><span class="o">&lt;</span><span class="i">kg</span><span class="o">&gt;</span> }
 </code></pre></td>
 </tr>
 </table>
@@ -1177,14 +1179,14 @@ Lots of different data feeds
 <span class="l">7: </span>
 <span class="l">8: </span>
 </pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs86', 184)" onmouseover="showTip(event, 'fs86', 184)" class="t">Result</span><span class="o">&lt;</span><span class="o">&#39;</span><span class="i">T</span><span class="o">&gt;</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs87', 185)" onmouseover="showTip(event, 'fs87', 185)" class="p">Success</span> <span class="k">of</span> <span class="o">&#39;</span><span class="i">T</span> | <span onmouseout="hideTip(event, 'fs88', 186)" onmouseover="showTip(event, 'fs88', 186)" class="p">Failure</span> <span class="k">of</span> <span class="i">error</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 187)" onmouseover="showTip(event, 'fs56', 187)" class="t">string</span>
-<span class="k">type</span> <span onmouseout="hideTip(event, 'fs89', 188)" onmouseover="showTip(event, 'fs89', 188)" class="t">Enricher</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs77', 189)" onmouseover="showTip(event, 'fs77', 189)" class="t">RateLine</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs77', 190)" onmouseover="showTip(event, 'fs77', 190)" class="t">RateLine</span> <span onmouseout="hideTip(event, 'fs86', 191)" onmouseover="showTip(event, 'fs86', 191)" class="t">Result</span>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">type</span> <span onmouseout="hideTip(event, 'fs85', 178)" onmouseover="showTip(event, 'fs85', 178)" class="t">Result</span><span class="o">&lt;</span><span class="o">&#39;</span><span class="i">T</span><span class="o">&gt;</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs86', 179)" onmouseover="showTip(event, 'fs86', 179)" class="p">Success</span> <span class="k">of</span> <span class="o">&#39;</span><span class="i">T</span> | <span onmouseout="hideTip(event, 'fs87', 180)" onmouseover="showTip(event, 'fs87', 180)" class="p">Failure</span> <span class="k">of</span> <span class="i">error</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs56', 181)" onmouseover="showTip(event, 'fs56', 181)" class="t">string</span>
+<span class="k">type</span> <span onmouseout="hideTip(event, 'fs88', 182)" onmouseover="showTip(event, 'fs88', 182)" class="t">Enricher</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs76', 183)" onmouseover="showTip(event, 'fs76', 183)" class="t">RateLine</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs76', 184)" onmouseover="showTip(event, 'fs76', 184)" class="t">RateLine</span> <span onmouseout="hideTip(event, 'fs85', 185)" onmouseover="showTip(event, 'fs85', 185)" class="t">Result</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs90', 192)" onmouseover="showTip(event, 'fs90', 192)" class="f">calculateRates</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs89', 193)" onmouseover="showTip(event, 'fs89', 193)" class="t">Enricher</span> <span class="o">=</span> <span class="c">//...</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs91', 194)" onmouseover="showTip(event, 'fs91', 194)" class="f">calculateRevenues</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs89', 195)" onmouseover="showTip(event, 'fs89', 195)" class="t">Enricher</span> <span class="o">=</span> <span class="c">// ...</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs92', 196)" onmouseover="showTip(event, 'fs92', 196)" class="f">calculateRouteInfo</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs89', 197)" onmouseover="showTip(event, 'fs89', 197)" class="t">Enricher</span> <span class="o">=</span> <span class="c">// ...</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs89', 186)" onmouseover="showTip(event, 'fs89', 186)" class="f">calculateRates</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs88', 187)" onmouseover="showTip(event, 'fs88', 187)" class="t">Enricher</span> <span class="o">=</span> <span class="c">//...</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs90', 188)" onmouseover="showTip(event, 'fs90', 188)" class="f">calculateRevenues</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs88', 189)" onmouseover="showTip(event, 'fs88', 189)" class="t">Enricher</span> <span class="o">=</span> <span class="c">// ...</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs91', 190)" onmouseover="showTip(event, 'fs91', 190)" class="f">calculateRouteInfo</span> <span class="o">:</span> <span onmouseout="hideTip(event, 'fs88', 191)" onmouseover="showTip(event, 'fs88', 191)" class="t">Enricher</span> <span class="o">=</span> <span class="c">// ...</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs93', 198)" onmouseover="showTip(event, 'fs93', 198)" class="i">enrich</span> <span class="o">=</span> <span class="i">calculateRates</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span class="i">calculateRevenues</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span class="i">calculateRouteInfo</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs92', 192)" onmouseover="showTip(event, 'fs92', 192)" class="i">enrich</span> <span class="o">=</span> <span class="i">calculateRates</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span class="i">calculateRevenues</span> <span class="o">&gt;</span><span class="o">=&gt;</span> <span class="i">calculateRouteInfo</span>
 </code></pre></td>
 </tr>
 </table>
