@@ -30,5 +30,4 @@ let sampleLine =
       Destination = "LHR"
       Rate = germany.TransportedLastYear / germany.RevenueEarnedLastYear
       MarketShare = 12
-      ShippedLastYear = germany.RevenueEarnedLastYear
-      EffectiveTo = DateTime.MaxValue }
+      ShippedLastYear = germany.RevenueEarnedLastYear }
