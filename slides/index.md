@@ -89,7 +89,7 @@
 * Sum Types
 * Nullability
 * Units of Measure
-* Dependent Types etc.
+* e.g. Dependent Types etc.
 
 ---
 
@@ -376,9 +376,13 @@
 
 ---
 
+## Communication...
+
+---
+
 ## Guiding the compiler
 
-A compiler makes use of type information to *help us*
+A compiler should be *your friend*.
 
 **
 
@@ -409,17 +413,12 @@ let addFive number = 5 + number
 ### Type Inference #3
 
 ```fsharp
-type Gender = Male | Female
-type Language = English | German | Hebrew
-type Plurality = Singular | Plural
+type Conference = { Title : string; Country : string; Subject : string }
 
-let speak phrase =
-    match phrase with
-    | English, Male, Singular -> "I love you"
-    | German, Male, Plural -> "ich liebe euch"
-    | Hebrew, Female, Singular -> "ani ohev otach"
+let describe conf = 
+    sprintf "The '%s' conference in %s is about %s" conf.Title conf.Country conf.Subject
 
-// phrase is a Tuple of (Language * Gender * Plurality)
+// conf is inferred as Conference.
 ```
 
 ---
@@ -438,6 +437,12 @@ let speak phrase =
 ---
 
 ## Sum Types
+
+* Allows us to model one-of / mutally-exclusive scenarios
+* No *great* solution to this in most OO languages
+* Happens all the time
+
+---
 
 ```fsharp
 open System
