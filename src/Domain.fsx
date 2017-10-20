@@ -1,48 +1,22 @@
-#load "Types.fsx"
-open System
+namespace global
 
-type RateLine =
-    { /// The name of the Market e.g. Germany.
-      Market : string
-      /// The type of product offered e.g. "standard", "perishable" etc.
-      Product : string
-      /// The origin airport.
-      Origin : string
-      /// The destination airport.
-      Destination : string
-      /// The rate charged for shipping, in euros per KG.
-      Rate : float
-      /// The market share compared to other shippers as a percentage.
-      MarketShare : int
-      /// The total weight that was shipped last year on this route.
-      ShippedLastYear : float
-      /// The date when this rate is effective to. Use DateTime.Max if no end date needed.
-      EffectiveTo : DateTime }
+type Airport = Airport of string
+type Market = Market of string
+type Product =
+    | Perishables
+    | Standard
+    | Express
 
-let germany =
-    { Id = "Germany"
-      BaseAirport = "FRA"
-      TransportedLastYear = 5000.
-      RevenueEarnedLastYear = 10000. }
+[<Measure>] type Kg
+[<Measure>] type Euro
+[<Measure>] type Percent
 
-let sampleLine =
-    { Market = germany.BaseAirport
-      Product = "Perisables"
-      Origin = "FRA"
-      Destination = "LHR"
-      Rate = germany.TransportedLastYear / germany.RevenueEarnedLastYear
-      MarketShare = 12
-      ShippedLastYear = germany.RevenueEarnedLastYear
-      EffectiveTo = DateTime.MaxValue }
+type MarketData =
+    { Id : string
+      BaseAirport : string
+      TransportedLastYear : float
+      RevenueEarnedLastYear : float }
 
-/// Gets the market share. If the rate line is no longer effective, return nothing.
-let getMarketShare date line =
-    match line.EffectiveTo with
-    | effectiveDate when effectiveDate = DateTime.MaxValue ->
-        printfn "Warning: no max date found"
-        line.MarketShare
-    | effectiveDate when effectiveDate < date -> -1
-    | _ -> line.MarketShare
-
-sampleLine
-|> getMarketShare (DateTime.Now)
+module Airports =
+    let FRA = Airport "FRA"
+    let LHR = Airport "LHR"

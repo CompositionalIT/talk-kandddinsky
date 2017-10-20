@@ -30,7 +30,8 @@
 
 ## What am I going to talk about?
 
-* The importance of types for domain modelling?
+* The importance of types for domain modelling
+* Using F# to model systems
 * Parallels: *Spoken* and *Programming* languages
 * Real-world case study
 * Demo
@@ -63,7 +64,7 @@
 
 ---
 
-### Coding Standard?
+### Coding Standards?
 ### Unit Tests?
 ### Comments?
 
@@ -98,13 +99,24 @@
 
 ---
 
-## It's too technical!
+## It's only for maths and science!
 
 ![](https://media.giphy.com/media/3o7btPCcdNniyf0ArS/source.gif)
 
 ---
 
 ## Don't believe the myths
+
+---
+
+## F# is good to go
+
+* Very good interop with C#
+* It's not hard to learn
+* Designed to play nicely with BCL
+* Great fit for value objects
+    * Immutability
+    * Structural Equality
 
 ***
 
@@ -550,6 +562,19 @@ let act contactDetails =
 
 ---
 
+### Structural Equality
+
+<img src="images/anti-patterns-6.png" style="width: 700px;"/>
+
+---
+
+```fsharp
+type Circle = { Radius : int; Circle : Point }
+```
+
+
+---
+
 ### The Mistyped Field
 
 ![](images/anti-patterns-4.png)
@@ -560,13 +585,14 @@ let act contactDetails =
 type EmailAddress = EmailAddress of string
 type TelephoneNumber = TelephoneNumber of string
 
+// Not a string, but a string "wrapped" in an EmailAddress
+let email = EmailAddress "isaac@compositional-it.com"
+
 let sendEmail (body:string) (EmailAddress email) = () // send emails
 let sendWelcome employee =
     sendEmail "Welcome to the company!" employee.TelephoneNumber
     // Won't compile - TelephoneNumber is not an EmailAddress
 
-// Not a string, but a string "wrapped" in an EmailAddress
-let email = EmailAddress "isaac@compositional-it.com"
 ```
 
 ---
@@ -585,11 +611,27 @@ let email = EmailAddress "isaac@compositional-it.com"
 
 ---
 
-## More types <> not read-world
+## Better types <> not real-world
 
 ---
 
-## More types <> too hard
+## Better types <> too hard
+
+---
+
+## More confidence
+
+---
+
+## Less tests
+
+---
+
+## Less bugs
+
+---
+
+## More happy
 
 ***
 
@@ -631,6 +673,15 @@ let email = EmailAddress "isaac@compositional-it.com"
 
 ---
 
+## Easy to evolve the types in a system
+
+1. Create a new type
+2. Apply it to your domain object
+3. Fix compiler errors
+4. Happy days!
+
+---
+
 ```fsharp
 type RateLine =
     { Market : string
@@ -657,22 +708,98 @@ type RateLine =
 
 ---
 
-## End Result
+## Results
 
 * **No bugs** in the wild
-* Calculations matched exactly to previous manual work
+* Calculations matched **exactly** to manual efforts
+* **No major** rewrites (yet!)
+* **Easy refactoring**
+* Met (*very*) tight deadlines
+
+---
+
+## Working with the business
+
+* Lower barrier to entry for collaboration
 * Focus on solving business problems
 * Able to walk through code with domain experts
+* Identified "gaps" in business process
+
+---
+
+## Great fit for functional paradigm
+
+```fsharp
+type Result<'T> = Success of 'T | Failure of error:string
+type Enricher = RateLine -> RateLine Result
+
+let calculateRates : Enricher = //...
+let calculateRevenues : Enricher = // ...
+let calculateRouteInfo : Enricher = // ...
+
+let enrich = calculateRates >=> calculateRevenues >=> calculateRouteInfo
+
+```
 
 ***
 
 ## Demo
 
+---
+
+## Bigger Codebase = Bigger Benefits
+
+---
+
+![](images/pipeline-1.png)
+
+---
+
+![](images/pipeline-2.png)
+
+---
+
+![](images/pipeline-3.png)
+
+---
+
+![](images/pipeline-4.png)
+
 ***
+
+## Summing up...
+
+---
+
+## Use types!
+
+---
+
+## Trust your compiler!
+
+---
+
+## Types too expensive in your current language?
+
+---
+
+## Use another language :)
+
+---
+
+## Shameless plug alert!
+
+<a href="https://www.amazon.de/Get-Programming-guide-NET-developers/dp/1617293997">
+    <img src="images/get-programming.jpg">
+</a>
+
+---
 
 ## Thank you!
 
-<img src="images/CIT-Circle.png" style="width: 200px;"/>
+<a href="https://compositional-it.com">
+    <img src="images/CIT-Circle.png" style="width: 200px;"/>
+</a>
 
 https://compositional-it.com
 
